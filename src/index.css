@@ -5,9 +5,164 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.bedroom * {
+  font-size:xx-large;
+  transform-style: preserve-3d;
+  top: 0px;
+  font-size: 0;
+}
+.bedroom {
+  position: relative;
+  top: 200px;
+}
+.bedroomOrigin {
+  position: relative;
+  top: 200px;
+  margin: auto;
+  background-color: rgb(211, 211, 211, .8);
+  width: 00px;
+  height: 00px;
+  /* perspective: 1500px; */
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateY(-0deg) rotateZ(45deg) translate3d(-00px, 00px, 0px);
+  transform-origin: center;
+  
+}
+.floor {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color: whitesmoke;
+  transform-origin: bottom left;
+  box-shadow: 5px 18px 84px 54px rgb(66 68 90), inset -58px -81px 100px 77px rgb(148 148 148);
+  z-index: 0;
+}
+.floor > .rightClip {
+  position: absolute;
+  left: 100%;
+  height: 525px;
+  width: 25px;
+  top: -25px;
+  transform: rotateY(90deg) scale(1);
+  
+  transform-origin: top left;
+  background: dimgray;
+  z-index: 1;
+}
+.floor > .leftClip {
+  position: absolute;
+  left: -25px;
+  height: 25px;
+  width: 525px;
+  top: 500px;
+  transform: rotateX(-90deg) scale(1);
+  transform-origin: top left;
+  background: dimgray;
+}
+.carpet {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 110px;
+  left: 90px;
+  background-color: rgb(255, 68, 68);
+  box-shadow: inset -86px -132px 159px -7px rgb(129 28 28);
+}
+.leftWall {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  background-color: lightblue;
+  transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg) translate3d(-0px, -0px, 0px);
+  transform-origin: top left;
+  box-shadow: inset -30px -88px 136px -63px rgb(66 68 90);
+  overflow: display;
+}
+.leftWall > .leftClip {
+  position: absolute;
+  left: 100%;
+  height: 325px;
+  width: 25px;
+  top: -25px;
+  transform: rotateY(90deg) scale(1);
+  transform-origin: top left;
+  background: dimgray;
+  box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1);
+
+}
+.leftWall > .topClip {
+  position: absolute;
+  top: 300px;
+  height: 25px;
+  width: 525px;
+  left: -25px;
+  transform: rotateX(-90deg) scale(1);
+  transform-origin: top left;
+  background: dimgray;
+}
+.rightWall {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  background-color: lightcoral;
+  transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  transform-origin: top left;
+  box-shadow: inset -49px -74px 266px -101px rgb(10 10 10)
+
+}
+.rightWall > .rightClip {
+  position: absolute;
+  left: 100%;
+  height: 325px;
+  top: -25px;
+  width: 25px;
+  transform: rotateY(-90deg) scale(1);
+  transform-origin: top left;
+  background: dimgray;
+  box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1)
+  
+}
+.rightWall > .topClip {
+  position: absolute;
+  top: 300px;
+  height: 25px;
+  width: 525px;
+  left: -25px;
+  transform: rotateX(90deg) scale(1);
+  transform-origin: top left;
+  background: dimgray;
+}
+.door {
+  position: absolute;
+  width: 110px;
+  height: 220px;
+  background-color: darkslategrey;
+  color: white;
+  left: 280px;
+  top: 0;
+  transform: rotateX(00deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  transform-origin: top left;
+  cursor: pointer;
+}
+.window {
+  position: absolute;
+  width: 130px;
+  height: 120px;
+  background-color: white;
+  color: black;
+  top: 100px;
+  left: 88px;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  transform-origin: top left;
+  box-shadow: inset 29px 27px 0px -10px rgb(144, 165, 164),
+  -117px -138px 42px -6px rgb(255 244 202);
+;
+  
+  cursor: pointer;
 }
