@@ -1,0 +1,118 @@
+.genericRoom * {
+    font-size:xx-large;
+    transform-style: preserve-3d;
+    top: 0px;
+    font-size: 0;
+  }
+  .genericRoom {
+    position: relative;
+    top: 200px;
+  }
+  .genericRoomOrigin {
+    position: relative;
+    top: 200px;
+    margin: auto;
+    background-color: rgb(211, 211, 211, .8);
+    width: 0px;
+    height: 0px;
+    /* perspective: 1500px; */
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateY(-0deg) rotateZ(45deg) translate3d(-00px, 00px, 0px);
+    transform-origin: center;
+  }
+  .floor {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    /* background-color: whitesmoke; */
+    transform-origin: bottom left;
+    box-shadow: 5px 18px 84px 54px rgb(66 68 90), inset -58px -81px 100px 77px rgb(148 148 148);
+    z-index: 0;
+  }
+  .floor > .rightClip {
+    position: absolute;
+    left: 100%;
+    height: 525px;
+    width: 25px;
+    top: -25px;
+    transform: rotateY(90deg) scale(1);
+    
+    transform-origin: top left;
+    background: dimgray;
+    z-index: 1;
+  }
+  .floor > .leftClip {
+    position: absolute;
+    left: -25px;
+    height: 25px;
+    width: 525px;
+    top: 500px;
+    transform: rotateX(-90deg) scale(1);
+    transform-origin: top left;
+    background: dimgray;
+  }  
+  .leftWall {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: lightblue;
+    transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg) translate3d(-0px, -0px, 0px);
+    transform-origin: top left;
+    box-shadow: inset -30px -88px 136px -63px rgb(66 68 90);
+    overflow: display;
+  }
+  .leftWall > .leftClip {
+    position: absolute;
+    left: 100%;
+    height: 325px;
+    width: 25px;
+    top: -25px;
+    transform: rotateY(90deg) scale(1);
+    transform-origin: top left;
+    background: dimgray;
+    box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1);
+  
+  }
+  .leftWall > .topClip {
+    position: absolute;
+    top: 300px;
+    height: 25px;
+    width: 525px;
+    left: -25px;
+    transform: rotateX(-90deg) scale(1);
+    transform-origin: top left;
+    background: dimgray;
+  }
+  .rightWall {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: lightcoral;
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: top left;
+    box-shadow: inset -49px -74px 266px -101px rgb(10 10 10)
+  
+  }
+  
+  .rightWall > .rightClip {
+    position: absolute;
+    left: 100%;
+    height: 325px;
+    top: -25px;
+    width: 25px;
+    transform: rotateY(-90deg) scale(1);
+    transform-origin: top left;
+    background: dimgray;
+    box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1)
+    
+  }
+  .rightWall > .topClip {
+    position: absolute;
+    top: 300px;
+    height: 25px;
+    width: 525px;
+    left: -25px;
+    transform: rotateX(90deg) scale(1);
+    transform-origin: top left;
+    background: dimgray;
+  }
