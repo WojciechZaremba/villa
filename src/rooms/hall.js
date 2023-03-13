@@ -1,23 +1,40 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import GenericRoom from './genericRoom';
 
-const Hall = () => {
+
+const Hall = ({handleClick}) => {
+    const [data, setData] = useState({
+        roomName: "hall",
+        roomWidth: 250,
+        roomLength: 750,
+        roomHeight: 300,
+        rightWallColor: "DarkSlateGrey",
+        leftWallColor: "DarkSlateGrey",
+        // rightWallColor: "lightcoral",
+        // leftWallColor: "lightcoral",
+        floorColor: "whitesmoke",
+    });
+    const items = {
+        poster: {
+            source: "../items/poster",
+            image: null,
+            positionTop: "78px",
+            positionLeft: "80px",
+            width: "116px",
+            height: "160px",
+            wall: "left",
+            handler: handleClick,
+        },
+        door: {
+            wall: "left",
+            positionLeft: "320px",
+            color: "Sienna",
+            route: "/bedroom"
+        }
+    }
     return (
-        <div className='bedroom'>dgdfg
-            <div className='bedroomOrigin'>
-                <div className="floor">
-                    <div className="leftClip clipping">leftClip</div>
-                    <div className="rightClip clipping">rightClip</div>
-                </div>
-                <div className="rightWall">
-                    <div className="rightClip clipping">rightClip</div>
-                    <div className="topClip clipping">topClip</div>
-                </div>
-                <div className="leftWall">
-                    <div className="leftClip clipping">leftClip</div>
-                    <div className="topClip clipping">topClip</div>
-                </div>
-            </div>
-        </div>
+            <GenericRoom data={data} items={items} handleClick={handleClick} />
     );
 }
 

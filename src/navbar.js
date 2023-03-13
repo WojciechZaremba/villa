@@ -1,7 +1,7 @@
-const Navbar = () => {
+const Navbar = ({handler}) => {
     return (
         <nav className="navbar">
-            <h1>navigation</h1>
+            <h1>navigation</h1> 
         </nav>
     );
 }

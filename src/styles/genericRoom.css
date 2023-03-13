@@ -1,3 +1,10 @@
+:root {
+    --rightWallColor: lightcoral;
+    --rightWallLength: 500px;
+    --leftWallColor: lightblue;
+    --leftWallLength: 500px;
+    --floorColor: pink;
+}
 .genericRoom * {
     font-size:xx-large;
     transform-style: preserve-3d;
@@ -55,10 +62,11 @@
     position: absolute;
     width: 500px;
     height: 300px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    background-color: FireBrick;
     transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg) translate3d(-0px, -0px, 0px);
     transform-origin: top left;
-    box-shadow: inset -30px -88px 136px -63px rgb(66 68 90);
+    box-shadow: inset -30px -88px 136px -63px rgb(10, 10, 10);
     overflow: display;
   }
   .leftWall > .leftClip {
@@ -87,7 +95,7 @@
     position: absolute;
     width: 500px;
     height: 300px;
-    background-color: lightcoral;
+    background-color: Indigo;
     transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
     transform-origin: top left;
     box-shadow: inset -49px -74px 266px -101px rgb(10 10 10)
