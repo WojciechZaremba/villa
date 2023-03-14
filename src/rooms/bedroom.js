@@ -6,9 +6,9 @@ import { useState } from 'react';
 const Bedroom = ({handleClick}) => {
     const [data, setData] = useState({
         name: "bedroom",
-        width: "300px",
-        length: "500px",
-        height: "300px",
+        roomWidth: 550,
+        roomLength: 550,
+        roomHeight: 300,
         rightWallColor: "lightcoral",
         leftWallColor: "lightblue",
         floorColor: "whitesmoke",
@@ -30,16 +30,16 @@ const Bedroom = ({handleClick}) => {
         poster: {
             source: "../items/poster",
             image: image,
-            positionTop: "78px",
-            positionLeft: "80px",
-            width: "116px",
-            height: "160px",
+            positionTop: 78,
+            positionLeft: 80,
+            width: 116,
+            height: 160,
             wall: "left",
             handler: handleClick,
         },
         door: {
             wall: "right",
-            positionLeft: "320px",
+            positionLeft: 320,
             color: "Sienna",
             route: "/hall"
         }
@@ -47,7 +47,7 @@ const Bedroom = ({handleClick}) => {
     
 
     return (
-            <GenericRoom onClick={handleClick} data={data} items={items} handleClick={handleClick} />
+            <GenericRoom data={data} items={items} handleClick={handleClick} />
 
 
         // <div className="genericRoom bedroom">Bedroom

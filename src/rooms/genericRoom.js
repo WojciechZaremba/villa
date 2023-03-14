@@ -16,11 +16,9 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 }}>floor
                     <div className="leftClip clipping" style={{
                                 width: data?.roomWidth + 25,
-                                top: data?.roomLength,
-                                // height: data?.roomLength,                              
+                                top: data?.roomLength,                              
                                 }}>leftClip</div>
                     <div className="rightClip clipping" style={{
-                                // width: data?.roomWidth,
                                 height: data?.roomLength + 25,                              
                                 }}>rightClip</div>
                     <Poster />
@@ -28,7 +26,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                 <div className="rightWall" style={{
                                 backgroundColor: data?.rightWallColor,
                                 width: data?.roomWidth,
-                                height: data?.width, 
+                                height: data?.roomHeight, 
                                 }}>rightWall
                 <Poster data={items} handleClick={handleClick} image={image}/>
                 {items?.door?.wall == "right" && <Door data={items}/>}
