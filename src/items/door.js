@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 const Door = ({data}) => {
-    console.log(data?.door)
     const nav = useNavigate()
     return (
         <div className="door"

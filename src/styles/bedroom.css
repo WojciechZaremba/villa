@@ -60,7 +60,7 @@ code {
   left: 78px;
   top: 80px;
   position: absolute;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   transform: rotateX(180deg);
   box-shadow: inset -17px -19px 64px -36px rgb(255 255 255), 7px -3px 16px -3px rgb(66 68 90);

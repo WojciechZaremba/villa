@@ -1,11 +1,11 @@
-import image from "../assets/courageCss.jpg"
+import image from "../assets/kolory10.jpg"
 import { Link } from 'react-router-dom';
 import GenericRoom from './genericRoom';
 import { useState } from 'react';
 
 const Bedroom = ({handleClick}) => {
     const [data, setData] = useState({
-        name: "bedroom",
+        roomName: "bedroom",
         roomWidth: 550,
         roomLength: 550,
         roomHeight: 300,

@@ -6,8 +6,8 @@ import GenericRoom from './genericRoom';
 const Hall = ({handleClick}) => {
     const [data, setData] = useState({
         roomName: "hall",
-        roomWidth: 250,
-        roomLength: 750,
+        roomWidth: 290,
+        roomLength: 790,
         roomHeight: 300,
         rightWallColor: "DarkSlateGrey",
         leftWallColor: "DarkSlateGrey",
@@ -23,7 +23,7 @@ const Hall = ({handleClick}) => {
             positionLeft: "80px",
             width: "116px",
             height: "160px",
-            wall: "left",
+            wall: "right",
             handler: handleClick,
         },
         door: {
