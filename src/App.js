@@ -40,7 +40,7 @@ function App() {
   //   routes.find((route) => route.path === window.location) ?? {}
   return (
     // <Router>
-      <div className="App" style={fadingOut ? {filter: 'blur(3px)'} : undefined }>
+      <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
         <header className="App-header">
           <Navbar />
         </header>

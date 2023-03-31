@@ -30,10 +30,10 @@ const Bedroom = ({handleClick}) => {
         poster: {
             source: "../items/poster",
             image: image,
-            positionTop: 78,
+            positionTop: 88,
             positionLeft: 80,
-            width: 116,
-            height: 160,
+            width: 160,
+            height: 120,
             wall: "left",
             handler: handleClick,
         },

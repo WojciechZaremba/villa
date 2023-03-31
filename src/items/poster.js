@@ -1,7 +1,13 @@
 
 
 const Poster = ({data, handleClick, image, popup = false}) => {
+    console.log("data",data?.poster)
+    let posterWidth = data?.poster?.width;
+    let posterheight = data?.poster?.height;
+    
     if (popup) {
+        posterWidth = data?.width;
+        posterheight = data?.height;
         console.log("popup poster")
         return (
             <div className="poster" 
@@ -9,8 +15,8 @@ const Poster = ({data, handleClick, image, popup = false}) => {
                 onClick={(e)=>handleClick(e)} 
                 style={{
                     backgroundImage: image,
-                    width: "464px",
-                    height: "640px",
+                    width: posterWidth * 4,
+                    height: posterheight * 4,
                     position: "relative",
                     top: "0",
                     left: "0",
@@ -23,8 +29,8 @@ const Poster = ({data, handleClick, image, popup = false}) => {
             onClick={(e)=>handleClick(e)} 
             style={{
                 backgroundImage: `url(${image})`,
-                width: "116px",
-                height: "160px",
+                width: posterWidth,
+                height: posterheight,
                 left: "78px",
                 top: "80px",
         }}>poster</div>
