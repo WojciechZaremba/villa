@@ -13,6 +13,25 @@ const GenericRoom = ({data, items, handleClick}) => {
     console.log("all items", items)
     //const image = items?.poster?.image
 
+    function postersProcessor(plane) {
+        console.log("plane",plane)
+        console.log("items processor",items?.posters)
+        let postersNum = items?.posters?.length
+        let posters = items?.posters
+        console.log(postersNum)
+
+        let postersComponents = []
+        for (let i = 0; i < postersNum; i++) {
+            if (posters[i].wall == plane) {
+                postersComponents.push(<Poster data={posters[i]} key={i} handleClick={handleClick}></Poster>)
+            }
+            console.log(posters[i])
+        }
+        console.log(postersComponents)
+        return <div>{postersComponents}</div>
+    }
+    postersProcessor("")
+
     return (
         <div className='genericRoom'>genericRoom: {data?.roomName}
             <div className='genericRoomOrigin' style={{left: roomOffset, top: roomOffsetVert}}>
@@ -36,7 +55,10 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 width: data?.roomWidth,
                                 height: data?.roomHeight, 
                                 }}>rightWall
-                    {items?.poster?.wall == "right" && <Poster data={items} handleClick={handleClick} image={image}/>}
+                    {items?.poster?.wall == "right" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>}
+                    
+                    {postersProcessor("right")}
+                    
                     {items?.door?.wall == "right" && <Door data={items}/>}
                     <div className="rightClip clipping" style={{
                         height: data?.roomHeight + 25
@@ -52,8 +74,11 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 height: data?.roomHeight, 
                                 }}>leftWall
                     
-                    {items?.poster?.wall == "left" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>}
+                    {/* {items?.poster?.wall == "left" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>} */}
                     {items?.door?.wall == "left" && <Door data={items}/>}
+
+                    {postersProcessor("left")}
+
                     <div className="leftClip clipping" style={{
                         height: data?.roomHeight + 25
                     }}>leftClip</div>

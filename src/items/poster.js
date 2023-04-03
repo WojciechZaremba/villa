@@ -1,9 +1,12 @@
 
 
 const Poster = ({data, handleClick, image, popup = false}) => {
-    console.log("data",data?.poster)
-    let posterWidth = data?.poster?.width;
-    let posterheight = data?.poster?.height;
+    console.log("data",data)
+
+    let posterWidth = data?.width;
+    let posterheight = data?.height;
+    let posterLeft = data?.positionLeft;
+    let posterTop = data?.positionTop;
     
     if (popup) {
         posterWidth = data?.width;
@@ -21,9 +24,10 @@ const Poster = ({data, handleClick, image, popup = false}) => {
                     top: "0",
                     left: "0",
                     transform: "rotateX(0deg)"
-            }}>poster</div>
-    )}
-    return (
+                }}>poster</div>
+                )}
+        image = data?.image
+                return (
         <div className="poster" 
             // onClick={()=>console.log("poster click")} 
             onClick={(e)=>handleClick(e)} 
@@ -31,8 +35,8 @@ const Poster = ({data, handleClick, image, popup = false}) => {
                 backgroundImage: `url(${image})`,
                 width: posterWidth,
                 height: posterheight,
-                left: "78px",
-                top: "80px",
+                left: posterLeft,
+                top: posterTop,
         }}>poster</div>
     )
 }

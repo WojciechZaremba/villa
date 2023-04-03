@@ -1,5 +1,6 @@
 import { createRef } from 'react'
 import { createRoot } from 'react-dom/client'
+import "./styles/general.css"
 import { 
    Route, 
    Routes, 

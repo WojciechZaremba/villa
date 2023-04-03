@@ -1,4 +1,5 @@
-import image from "../assets/kolory10.jpg"
+import imageColors from "../assets/kolory10.jpg"
+import imageMan from "../assets/panOdKota.jpg"
 import { Link } from 'react-router-dom';
 import GenericRoom from './genericRoom';
 import { useState } from 'react';
@@ -27,16 +28,26 @@ const Bedroom = ({handleClick}) => {
 
     // })
     const items = {
-        poster: {
-            source: "../items/poster",
-            image: image,
-            positionTop: 88,
+        posters: [
+            {
+            image: imageColors,
+            positionTop: 115,
             positionLeft: 80,
             width: 160,
             height: 120,
             wall: "left",
             handler: handleClick,
-        },
+            },
+            {
+            image: imageMan,
+            positionTop: 88,
+            positionLeft: 310,
+            width: 110,
+            height: 110,
+            wall: "left",
+            handler: handleClick,
+            }
+        ],
         door: {
             wall: "right",
             positionLeft: 320,

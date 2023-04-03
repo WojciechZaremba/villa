@@ -9,6 +9,7 @@ const Popup = (props) => {
     let propHeight
     if (props.popElement) {
         imgUrl = window.getComputedStyle(props.popElement).backgroundImage
+        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeee",imgUrl)
         propWidth = window.getComputedStyle(props.popElement).width
         propWidth = parseInt(propWidth.substring(0, propWidth.length - 2), 10) //string px to a number
         propHeight = window.getComputedStyle(props.popElement).height

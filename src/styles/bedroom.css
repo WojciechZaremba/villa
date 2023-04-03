@@ -30,9 +30,16 @@ code {
   top: 0;
   transform: rotateX(00deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
   transform-origin: top left;
+
+  /* transform: rotateX(00deg) rotateY(0deg) rotateZ(0deg) translate3d(-179px, 0px, 250px); */
+
   cursor: pointer;
   border: 15px inset #50505042;
   border-top: none;
+  opacity: 0.5;
+}
+.door:hover {
+  opacity: 1;
 }
 .door a {
   display:inline-block;

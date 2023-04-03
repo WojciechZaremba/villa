@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import GenericRoom from './genericRoom';
+import image from "../assets/panOdKota.jpg"
 
 
 const Hall = ({handleClick}) => {
     const [data, setData] = useState({
         roomName: "hall",
-        roomWidth: 290,
+        roomWidth: 250,
         roomLength: 790,
         roomHeight: 300,
         rightWallColor: "DarkSlateGrey",
@@ -16,16 +17,15 @@ const Hall = ({handleClick}) => {
         floorColor: "whitesmoke",
     });
     const items = {
-        poster: {
-            source: "../items/poster",
-            image: null,
+        posters: [{
+            image: image,
             positionTop: "78px",
             positionLeft: "80px",
             width: "116px",
             height: "160px",
             wall: "right",
             handler: handleClick,
-        },
+        }],
         door: {
             wall: "left",
             positionLeft: "320px",
