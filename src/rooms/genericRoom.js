@@ -1,6 +1,7 @@
 import image from "../assets/courageCss.jpg"
 import Poster from "../items/poster"
 import Door from"../items/door"
+import PlaceholderBox from "../items/placeholderBox"
 
 console.log(image)
 
@@ -9,6 +10,7 @@ const GenericRoom = ({data, items, handleClick}) => {
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2);
 
     console.log(items?.poster?.image)
+    console.log("all items", items)
     //const image = items?.poster?.image
 
     return (
@@ -19,6 +21,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 width: data?.roomWidth,
                                 height: data?.roomLength,                              
                                 }}>floor
+                    {items?.placeholderBox && <PlaceholderBox></PlaceholderBox>}
                     <div className="leftClip clipping" style={{
                                 width: data?.roomWidth + 25,
                                 top: data?.roomLength,                              

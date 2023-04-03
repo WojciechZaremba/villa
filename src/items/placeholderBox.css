@@ -1,0 +1,46 @@
+.placeholderContainer {
+    
+}
+.placeholderOrigin {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: top left;
+}
+.placeholderLeft {
+    position: absolute;
+    background-color: burlywood;
+
+    background-image: url("../assets/wood.png");
+    background-size: contain;
+
+    width: 100px;
+    height: 100px;
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: bottom right;
+}
+.placeholderRight {
+    position: absolute;
+    background-color: darkgoldenrod;
+
+    background-image: url("../assets/wood.png");
+    background-size: contain;
+
+    width: 100px;
+    height: 100px;
+    transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: bottom right;
+}
+.placeholderTop {
+    position: absolute;
+    background-color: bisque;
+
+    background-image: url("../assets/wood.png");
+    background-size: contain;
+
+    width: 100px;
+    height: 100px;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 100px);
+    transform-origin: bottom right;
+}

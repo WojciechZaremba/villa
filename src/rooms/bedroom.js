@@ -42,6 +42,13 @@ const Bedroom = ({handleClick}) => {
             positionLeft: 320,
             color: "Sienna",
             route: "/hall"
+        },
+        placeholderBox: {
+            positionTop: 88,
+            positionLeft: 80,
+            width: 160,
+            height: 120,
+            wall: "floor"
         }
     }
     
