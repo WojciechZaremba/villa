@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import GenericRoom from './genericRoom';
-import image from "../assets/panOdKota.jpg"
+import image from "../assets/panOdKota.jpg";
+import Door from '../items/door';
 
 
 const Hall = ({handleClick}) => {
@@ -26,12 +27,13 @@ const Hall = ({handleClick}) => {
             wall: "right",
             handler: handleClick,
         }],
-        door: {
+        doors: [{
+            proto: Door,
             wall: "left",
             positionLeft: "320px",
             color: "Sienna",
             route: "/bedroom"
-        }
+        }]
     }
     return (
             <GenericRoom data={data} items={items} handleClick={handleClick} />

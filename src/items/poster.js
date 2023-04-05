@@ -1,7 +1,7 @@
 
 
 const Poster = ({data, handleClick, image, popup = false}) => {
-    console.log("data",data)
+    // console.log("data",data)
 
     let posterWidth = data?.width;
     let posterheight = data?.height;
@@ -11,7 +11,7 @@ const Poster = ({data, handleClick, image, popup = false}) => {
     if (popup) {
         posterWidth = data?.width;
         posterheight = data?.height;
-        console.log("popup poster")
+        // console.log("popup poster")
         return (
             <div className="poster" 
                 // onClick={()=>console.log("poster click")} 

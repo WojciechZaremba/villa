@@ -2,8 +2,8 @@ import './popup.css'
 import Poster from '../items/poster';
 
 const Popup = (props) => {
-    console.log("props",props)
-    console.log(props.popElement?.style?.backgroundImage)
+    // console.log("props",props)
+    // console.log(props.popElement?.style?.backgroundImage)
     let imgUrl
     let propWidth
     let propHeight

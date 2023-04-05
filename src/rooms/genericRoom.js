@@ -2,35 +2,73 @@ import image from "../assets/courageCss.jpg"
 import Poster from "../items/poster"
 import Door from"../items/door"
 import PlaceholderBox from "../items/placeholderBox"
+import Bed from "../items/bed"
 
-console.log(image)
+console.log("%cimported door:","color: yellow",Door)
+
+// console.log(image)
 
 const GenericRoom = ({data, items, handleClick}) => {
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7;
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2);
 
-    console.log(items?.poster?.image)
-    console.log("all items", items)
+   // console.log("%cdoor passed as a prop","color: magenta",items.doors[0].proto)
+
+
+    // console.log(items?.poster?.image)
+    // console.log("all items", items)
+
     //const image = items?.poster?.image
 
     function postersProcessor(plane) {
-        console.log("plane",plane)
-        console.log("items processor",items?.posters)
+        // console.log("plane",plane)
+        // console.log("items processor",items?.posters)
         let postersNum = items?.posters?.length
         let posters = items?.posters
-        console.log(postersNum)
+        // console.log(postersNum)
 
         let postersComponents = []
         for (let i = 0; i < postersNum; i++) {
             if (posters[i].wall == plane) {
                 postersComponents.push(<Poster data={posters[i]} key={i} handleClick={handleClick}></Poster>)
             }
-            console.log(posters[i])
+            // console.log(posters[i])
         }
-        console.log(postersComponents)
+        // console.log("test",postersComponents)
         return <div>{postersComponents}</div>
     }
-    postersProcessor("")
+    // postersProcessor("")
+
+    function doorsProcessor(plane) {
+        let doorsNum = items?.doors?.length;
+        let doors = items?.doors
+        console.log(items?.doors)
+
+        let doorsComponenets = []
+        for (let i = 0; i < doorsNum; i++) {
+            console.log(items.doors[i])
+            if (doors[i].wall) {
+                doorsComponenets.push(<Door data={items.doors[i]} key={i}></Door>)
+            }
+            console.log("DOORS",doors[i])
+        }
+        console.log(doorsComponenets)
+        return <div>{doorsComponenets}</div>
+    }
+    //doorsProcessor("")
+
+
+    function universalItemProcessor(plane) {
+        const categories = Object.keys(items);
+        console.log("universal: ", categories);
+
+        for (let i = 0; i < categories.length; i++) {
+            console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
+        }
+    }
+   // universalItemProcessor();
+
+
 
     return (
         <div className='genericRoom'>genericRoom: {data?.roomName}
@@ -55,9 +93,10 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 width: data?.roomWidth,
                                 height: data?.roomHeight, 
                                 }}>rightWall
-                    {items?.poster?.wall == "right" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>}
+                    {/* {items?.poster?.wall == "right" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>} */}
                     
                     {postersProcessor("right")}
+                    {doorsProcessor("right")}
                     
                     {items?.door?.wall == "right" && <Door data={items}/>}
                     <div className="rightClip clipping" style={{
@@ -75,7 +114,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 }}>leftWall
                     
                     {/* {items?.poster?.wall == "left" && <Poster data={items} handleClick={handleClick} image={items?.poster?.image}/>} */}
-                    {items?.door?.wall == "left" && <Door data={items}/>}
+                    {/* {items?.door?.wall == "left" && <Door data={items}/>} */}
 
                     {postersProcessor("left")}
 

@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import GenericRoom from './genericRoom';
 import { useState } from 'react';
 
+import Bed from "../items/bed";
+import Door from"../items/door";
+import Poster from "../items/poster";
+import PlaceholderBox from "../items/placeholderBox";
+
 const Bedroom = ({handleClick}) => {
     const [data, setData] = useState({
         roomName: "bedroom",
@@ -30,6 +35,7 @@ const Bedroom = ({handleClick}) => {
     const items = {
         posters: [
             {
+            proto: Poster,
             image: imageColors,
             positionTop: 115,
             positionLeft: 80,
@@ -39,6 +45,7 @@ const Bedroom = ({handleClick}) => {
             handler: handleClick,
             },
             {
+            proto: Poster,
             image: imageMan,
             positionTop: 88,
             positionLeft: 310,
@@ -48,18 +55,33 @@ const Bedroom = ({handleClick}) => {
             handler: handleClick,
             }
         ],
-        door: {
+        doors: [
+            {
+            proto: Door,
             wall: "right",
             positionLeft: 320,
+            color: "Brown",
+            route: "/storage"
+            },
+            {
+            proto: Door,
+            wall: "right",
+            positionLeft: 120,
             color: "Sienna",
             route: "/hall"
-        },
-        placeholderBox: {
+            },
+    ],
+        // placeholderBox: {
+        //     positionTop: 88,
+        //     positionLeft: 80,
+        //     width: 160,
+        //     height: 120,
+        //     wall: "floor"
+        // },
+        bed: {
+            proto: Bed,
             positionTop: 88,
             positionLeft: 80,
-            width: 160,
-            height: 120,
-            wall: "floor"
         }
     }
     
