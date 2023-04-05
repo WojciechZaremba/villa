@@ -30,9 +30,16 @@ const Hall = ({handleClick}) => {
         doors: [{
             proto: Door,
             wall: "left",
-            positionLeft: "320px",
-            color: "Sienna",
+            positionLeft: 320,
+            color: "Pink",
             route: "/bedroom"
+        },
+        {
+            proto: Door,
+            wall: "left",
+            positionLeft: 560,
+            color: "LightSeaGreen",
+            route: "/bathroom"
         }]
     }
     return (

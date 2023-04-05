@@ -46,8 +46,8 @@ const GenericRoom = ({data, items, handleClick}) => {
 
         let doorsComponenets = []
         for (let i = 0; i < doorsNum; i++) {
-            console.log(items.doors[i])
-            if (doors[i].wall) {
+            console.log(doors[i].wall == plane)
+            if (doors[i].wall == plane) {
                 doorsComponenets.push(<Door data={items.doors[i]} key={i}></Door>)
             }
             console.log("DOORS",doors[i])
@@ -117,6 +117,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                     {/* {items?.door?.wall == "left" && <Door data={items}/>} */}
 
                     {postersProcessor("left")}
+                    {doorsProcessor("left")}
 
                     <div className="leftClip clipping" style={{
                         height: data?.roomHeight + 25

@@ -60,14 +60,14 @@ const Bedroom = ({handleClick}) => {
             proto: Door,
             wall: "right",
             positionLeft: 320,
-            color: "Brown",
+            color: "Sienna",
             route: "/storage"
             },
             {
             proto: Door,
             wall: "right",
             positionLeft: 120,
-            color: "Sienna",
+            color: "Brown",
             route: "/hall"
             },
     ],

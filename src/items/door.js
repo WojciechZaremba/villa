@@ -10,7 +10,7 @@ const Door = ({data}) => {
         <div className="door"
                 onClick={() => nav(`${data?.route}`)}
                 style={{
-                    backgroundColor: `${data?.color}`,
+                    backgroundColor: data?.color,
                     left: data?.positionLeft,
                 }}
         >door</div>
