@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GenericRoom from './genericRoom';
 import image from "../assets/panOdKota.jpg";
 import Door from '../items/door';
+import Poster from '../items/poster';
 
 
 const Hall = ({handleClick}) => {
@@ -19,6 +20,7 @@ const Hall = ({handleClick}) => {
     });
     const items = {
         posters: [{
+            proto: Poster,
             image: image,
             positionTop: "78px",
             positionLeft: "80px",
