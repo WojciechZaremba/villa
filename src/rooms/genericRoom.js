@@ -1,6 +1,6 @@
 import image from "../assets/courageCss.jpg"
 // import Poster from "../items/poster"
- import Door from"../items/door"
+// import Door from"../items/door"
 import PlaceholderBox from "../items/placeholderBox"
 // import Bed from "../items/bed"
 import React from "react"

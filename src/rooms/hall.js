@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import GenericRoom from './genericRoom';
-import image from "../assets/panOdKota.jpg";
+import chojrak from "../assets/courageCss.jpg";
+import panOdKota from "../assets/panOdKota.jpg";
 import Door from '../items/door';
 import Poster from '../items/poster';
 
@@ -21,7 +22,17 @@ const Hall = ({handleClick}) => {
     const items = {
         posters: [{
             proto: Poster,
-            image: image,
+            image: panOdKota,
+            positionTop: "78px",
+            positionLeft: "320px",
+            width: "116px",
+            height: "160px",
+            wall: "left",
+            handler: handleClick,
+        },
+        {
+            proto: Poster,
+            image: chojrak,
             positionTop: "78px",
             positionLeft: "80px",
             width: "116px",
@@ -32,14 +43,14 @@ const Hall = ({handleClick}) => {
         doors: [{
             proto: Door,
             wall: "left",
-            positionLeft: 320,
+            positionLeft: 80,
             color: "Pink",
             route: "/bedroom"
         },
         {
             proto: Door,
             wall: "left",
-            positionLeft: 560,
+            positionLeft: 540,
             color: "LightSeaGreen",
             route: "/bathroom"
         }]
