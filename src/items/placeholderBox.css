@@ -3,8 +3,8 @@
 }
 .placeholderOrigin {
     position: relative;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
     transform-origin: top left;
 }
@@ -17,10 +17,10 @@
 
     width: 100px;
     height: 100px;
-    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
-    transform-origin: bottom right;
+    transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: top right;
 }
-.placeholderRight {
+.placeholderRight, .placeholderDefHidden {
     position: absolute;
     background-color: darkgoldenrod;
 
@@ -29,8 +29,8 @@
 
     width: 100px;
     height: 100px;
-    transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
-    transform-origin: bottom right;
+    transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+    transform-origin: bottom left;
 }
 .placeholderTop {
     position: absolute;

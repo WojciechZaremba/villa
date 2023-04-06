@@ -10,6 +10,11 @@ import React from "react"
 // console.log(image)
 
 const GenericRoom = ({data, items, handleClick}) => {
+
+    console.log("%cTelevision","color: pink",items?.tvs)
+    const Television = items?.tvs?.[0]?.proto
+    const tvData = items?.tvs?.[0]
+
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7;
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2);
 
@@ -87,6 +92,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 height: data?.roomLength,                              
                                 }}>floor
                     {items?.placeholderBox && <PlaceholderBox></PlaceholderBox>}
+                    {items?.tvs && <Television data={tvData}/>}
                     <div className="leftClip clipping" style={{
                                 width: data?.roomWidth + 25,
                                 top: data?.roomLength,                              

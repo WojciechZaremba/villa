@@ -9,6 +9,8 @@ import Door from"../items/door";
 import Poster from "../items/poster";
 import PlaceholderBox from "../items/placeholderBox";
 
+import TV from "../items/tv";
+
 const Bedroom = ({handleClick}) => {
     const [data, setData] = useState({
         roomName: "bedroom",
@@ -71,18 +73,25 @@ const Bedroom = ({handleClick}) => {
             route: "/hall"
             },
     ],
-        // placeholderBox: {
-        //     positionTop: 88,
-        //     positionLeft: 80,
-        //     width: 160,
-        //     height: 120,
-        //     wall: "floor"
-        // },
+        placeholderBox: {
+            positionTop: 88,
+            positionLeft: 80,
+            width: 160,
+            height: 120,
+            wall: "floor"
+        },
         bed: {
             proto: Bed,
             positionTop: 88,
             positionLeft: 80,
-        }
+        },
+        tvs: [{
+            proto: TV,
+            positionTop: 100,
+            positionLeft: -100,
+            elevation: 0,
+            rotationDeg: 285
+        }]
     }
     
 
