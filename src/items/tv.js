@@ -21,7 +21,8 @@ const TV = ({data}) => {
         positionRight: 0,
         elevation: 8,
         border: 6,
-        boxShadow: count % 2 == 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none"
+        boxShadow: count % 2 == 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
+        cursor: "pointer"
     });
 
   // Similar to componentDidMount and componentDidUpdate:
@@ -96,8 +97,8 @@ const TV = ({data}) => {
                                 translate3d(0px,0px, 0px)`,
                     transformOrigin: "centre"
                 }}>{count}
-                <PlaceholderBox data={screenData} custom={true}/>   
-                <PlaceholderBox data={base} custom={true}/>   
+                <PlaceholderBox data={screenData} custom={true} clickable={true}/>   
+                <PlaceholderBox data={base} custom={true} clickable={true}/>   
             </div>
         </div>
      )

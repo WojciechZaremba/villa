@@ -1,7 +1,12 @@
 import "./placeholderBox.css"
 
 
-const PlaceholderBox = ({data, custom = false}) => {
+const PlaceholderBox = ({data, custom = false, clickable = false}) => {
+    
+    let customClasses = ""
+    clickable && (customClasses = customClasses.concat(" ", "clickable"))
+    console.log(customClasses)
+
 
     if (!custom) {
 
@@ -40,7 +45,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                         left: custompostitionLeft,
                         top: customPostitionRight
                         }}>
-                    <div className="placeholderLeft" 
+                    <div className={`placeholderLeft ${customClasses}`}
                         style={{
                             backgroundImage: `url(${customImage})`,
                             // backgroundImage: `none`,
@@ -55,7 +60,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                             transform: `rotateX(-90deg) rotateY(0deg) rotateZ(0deg) 
                                     translate3d(0px, ${-customHeight}px,0px)`
                 }}></div>
-                    <div className="placeholderRight" 
+                    <div className={`placeholderRight ${customClasses}`}
                         style={{
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
@@ -66,7 +71,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                         transform: `rotateX(0deg) rotateY(90deg) rotateZ(0deg) 
                                     translate3d(${-customHeight}px, 0px,  0px)`
                 }}></div>
-                    <div className="placeholderDefHidden" 
+                    <div className={`placeholderDefHidden ${customClasses}`}
                         style={{
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
@@ -77,7 +82,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                         transform: `rotateX(0deg) rotateY(90deg) rotateZ(0deg) 
                                     translate3d(${-customHeight}px, 0px,  ${-customWidth}px)`
                 }}></div>
-                    <div className="placeholderTop" 
+                    <div className={`placeholderTop ${customClasses}`}
                         style={{
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorTop,
