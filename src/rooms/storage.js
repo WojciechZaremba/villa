@@ -1,5 +1,17 @@
 import GenericRoom from "./genericRoom";
 import { useState } from "react";
+import Door from "../items/door";
+
+const items = {
+    doors: [
+        {
+        proto: Door,
+        wall: "left",
+        positionLeft: 20,
+        color: "Sienna",
+        route: "/bedroom"
+        }],
+}
 
 const Storage = ({handleClick}) => {
     const [data, setData] = useState({
@@ -12,7 +24,7 @@ const Storage = ({handleClick}) => {
     });
 
 
-    return <GenericRoom data={data} handleClick={handleClick} />
+    return <GenericRoom data={data} items={items} handleClick={handleClick} />
 }
 
 export default Storage;

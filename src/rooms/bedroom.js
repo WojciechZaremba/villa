@@ -69,10 +69,9 @@ const Bedroom = ({handleClick}) => {
             proto: Door,
             wall: "right",
             positionLeft: 120,
-            color: "Brown",
+            color: "Pink",
             route: "/hall"
-            },
-    ],
+            }],
         placeholderBox: {
             positionTop: 88,
             positionLeft: 80,

@@ -1,5 +1,6 @@
 import GenericRoom from "./genericRoom";
 import { useState } from "react";
+import Door from "../items/door";
 
 
 const Bathroom = ({handleClick}) => {
@@ -12,8 +13,19 @@ const Bathroom = ({handleClick}) => {
         leftWallColor: "PowderBlue",
     });
 
+    const items = {
+        doors: [
+            {
+            proto: Door,
+            wall: "right",
+            positionLeft: 20,
+            color: "LightSeaGreen",
+            route: "/hall"
+            }],
+    }
 
-    return <GenericRoom data={data} handleClick={handleClick} />
+
+    return <GenericRoom data={data} items={items} handleClick={handleClick} />
 }
 
 export default Bathroom;

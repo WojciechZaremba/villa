@@ -20,7 +20,7 @@ const GenericRoom = ({data, items, handleClick}) => {
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2);
 
    console.log("%cdoor passed as a prop","color: magenta",items?.doors[0]?.proto)
-   const PosterProto = items?.posters[0]?.proto
+   const PosterProto = items?.posters?.[0]?.proto
    const DoorProto = items?.doors[0]?.proto
 
 
