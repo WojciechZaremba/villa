@@ -1,5 +1,6 @@
 import "./placeholderBox.css"
 
+
 const PlaceholderBox = ({data, custom = false}) => {
 
     if (!custom) {
@@ -26,6 +27,10 @@ const PlaceholderBox = ({data, custom = false}) => {
         const customPostitionRight = data.positionRight
         const customElevation = data.elevation
         const customImage = data.backgroundImage
+        const border = data.border
+        const boxShadow = data.boxShadow
+
+        console.log('%ccustomImage', "color: brown", customImage)
 
         return (
             <div className="placeholderContainer">
@@ -37,18 +42,22 @@ const PlaceholderBox = ({data, custom = false}) => {
                         }}>
                     <div className="placeholderLeft" 
                         style={{
-                        backgroundImage: customImage,
-                        backgroundColor: customColorLeft,
+                            backgroundImage: `url(${customImage})`,
+                            // backgroundImage: `none`,
+                            backgroundColor: customColorLeft,
+                            border: `solid #111 ${border}px`,
+                            boxSizing: "border-box",
+                            boxShadow: boxShadow,
                         // left: custompostitionLeft,
-                        width: customWidth,
-                        height: customHeight,
-                        top: customDepth,
-                        transform: `rotateX(-90deg) rotateY(0deg) rotateZ(0deg) 
+                            width: customWidth,
+                            height: customHeight,
+                            top: customDepth,
+                            transform: `rotateX(-90deg) rotateY(0deg) rotateZ(0deg) 
                                     translate3d(0px, ${-customHeight}px,0px)`
                 }}></div>
                     <div className="placeholderRight" 
                         style={{
-                        backgroundImage: customImage,
+                        backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
                         width: customHeight,
@@ -59,7 +68,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                 }}></div>
                     <div className="placeholderDefHidden" 
                         style={{
-                        backgroundImage: customImage,
+                        backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
                         width: customHeight,
@@ -70,7 +79,7 @@ const PlaceholderBox = ({data, custom = false}) => {
                 }}></div>
                     <div className="placeholderTop" 
                         style={{
-                        backgroundImage: customImage,
+                        backgroundImage: `url(${""})`,
                         backgroundColor: customColorTop,
                         // left: data?.positionLeft,
                         width: customWidth,

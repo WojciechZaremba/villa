@@ -5,6 +5,7 @@ import PlaceholderBox from "../items/placeholderBox"
 // import Bed from "../items/bed"
 import React from "react"
 
+
 // console.log("%cimported door:","color: yellow",Door)
 
 // console.log(image)
