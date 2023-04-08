@@ -22,23 +22,32 @@ const Hall = ({handleClick}) => {
     const items = {
         posters: [{
             proto: Poster,
+            wall: "left",
+            handler: handleClick,
+            styles: {
+                backgroundImage: `url(${panOdKota})`,
+                top: 78,
+                left: 320,
+                width: 116,
+                height: 160,
+            },
             image: panOdKota,
             positionTop: "78px",
             positionLeft: "320px",
             width: "116px",
             height: "160px",
-            wall: "left",
-            handler: handleClick,
         },
         {
             proto: Poster,
-            image: chojrak,
-            positionTop: "78px",
-            positionLeft: "80px",
-            width: "116px",
-            height: "160px",
             wall: "right",
             handler: handleClick,
+            styles: {
+                backgroundImage: `url(${chojrak})`,
+                top: "78px",
+                left: "80px",
+                width: "116px",
+                height: "160px"
+                },
         }],
         doors: [{
             proto: Door,

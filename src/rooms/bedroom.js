@@ -38,23 +38,27 @@ const Bedroom = ({handleClick}) => {
         posters: [
             {
             proto: Poster,
-            image: imageColors,
-            positionTop: 115,
-            positionLeft: 80,
-            width: 160,
-            height: 120,
-            wall: "left",
             handler: handleClick,
+            wall: "left",
+            styles: {
+                backgroundImage: `url(${imageColors})`,
+                width: 160,
+                height: 120,
+                left: 80,
+                top: 115,
+                },
             },
             {
             proto: Poster,
-            image: imageMan,
-            positionTop: 88,
-            positionLeft: 310,
-            width: 110,
-            height: 110,
-            wall: "left",
             handler: handleClick,
+            wall: "left",
+            styles: {
+                backgroundImage: `url(${imageMan})`,
+                width: 110,
+                height: 110,
+                left: 310,
+                top: 88,
+                },
             }
         ],
         doors: [

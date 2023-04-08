@@ -15,13 +15,13 @@ const items = {
             },
         }],
     placeholderBox: {
+        wall: "floor",
         styles: {
             top: 0,
             left: 80,
             width: 100, // dont work yet if not custom
             height: 100,
         },
-        wall: "floor"
     },
 }
 

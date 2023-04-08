@@ -28,16 +28,22 @@ const Poster = ({data, handleClick, image, popup = false}) => {
                 )}
         image = data?.image
                 return (
+        // <div className="poster wall-poster" 
+        //     // onClick={()=>console.log("poster click")} 
+        //     onClick={(e)=>handleClick(e)} 
+        //     style={{
+        //         backgroundImage: `url(${image})`,
+        //         width: posterWidth,
+        //         height: posterheight,
+        //         left: posterLeft,
+        //         top: posterTop,
+        // }}>
         <div className="poster wall-poster" 
             // onClick={()=>console.log("poster click")} 
             onClick={(e)=>handleClick(e)} 
-            style={{
-                backgroundImage: `url(${image})`,
-                width: posterWidth,
-                height: posterheight,
-                left: posterLeft,
-                top: posterTop,
-        }}>poster</div>
+            style={{...data.styles}}
+            >
+                poster</div>
     )
 }
 
