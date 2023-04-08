@@ -42,17 +42,21 @@ const Hall = ({handleClick}) => {
         }],
         doors: [{
             proto: Door,
+            route: "/bedroom",
             wall: "left",
-            positionLeft: 80,
-            color: "Pink",
-            route: "/bedroom"
+            styles: {
+                left: 80,
+                background: "Pink",
+            },
         },
         {
             proto: Door,
+            route: "/bathroom",
             wall: "left",
-            positionLeft: 540,
-            color: "LightSeaGreen",
-            route: "/bathroom"
+            styles: {
+                left: 540,
+                background: "LightSeaGreen",
+            },
         }]
     }
     return (

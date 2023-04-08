@@ -1,16 +1,28 @@
 import GenericRoom from "./genericRoom";
 import { useState } from "react";
 import Door from "../items/door";
+import PlaceholderBox from "../items/placeholderBox";
 
 const items = {
     doors: [
         {
         proto: Door,
         wall: "left",
-        positionLeft: 20,
-        color: "Sienna",
-        route: "/bedroom"
+        route: "/bedroom",
+        styles: {
+            left: 20,
+            background: "Sienna",
+            },
         }],
+    placeholderBox: {
+        styles: {
+            top: 0,
+            left: 80,
+            width: 100, // dont work yet if not custom
+            height: 100,
+        },
+        wall: "floor"
+    },
 }
 
 const Storage = ({handleClick}) => {

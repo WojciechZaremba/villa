@@ -60,36 +60,55 @@ const Bedroom = ({handleClick}) => {
         doors: [
             {
             proto: Door,
+            route: "/storage",
             wall: "right",
-            positionLeft: 320,
-            color: "Sienna",
-            route: "/storage"
+            styles: {
+                left: 320,
+                background: "Sienna",
+                },
             },
             {
             proto: Door,
+            route: "/hall",
             wall: "right",
-            positionLeft: 120,
-            color: "Pink",
-            route: "/hall"
+            styles: {
+                left: 120,
+                background: "Pink",
+                },
             }],
         placeholderBox: {
-            positionTop: 88,
-            positionLeft: 80,
-            width: 160,
-            height: 120,
-            wall: "floor"
+            styles: {
+                left: 3,
+                top: 9,
+            },
+            // width: 160,
+            // height: 120,
+            // wall: "floor"
         },
         bed: {
             proto: Bed,
-            positionTop: 88,
-            positionLeft: 80,
+            styles: {
+                top: 88,
+                left: 80,
+            }
         },
+        // tvs: [{
+        //     proto: TV,
+        //     positionTop: 100,
+        //     positionLeft: -100,
+        //     elevation: 0,
+        //     rotationDeg: 285
+        // }]
         tvs: [{
             proto: TV,
-            positionTop: 100,
-            positionLeft: -100,
-            elevation: 0,
-            rotationDeg: 285
+            styles: {
+                top: 415,
+                left: 100,
+                elevation: 0,
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
+                translate3d(0px,0px, 0px)`,
+                transformOrigin: "centre"
+            }
         }]
     }
     

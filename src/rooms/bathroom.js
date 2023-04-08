@@ -1,6 +1,7 @@
 import GenericRoom from "./genericRoom";
 import { useState } from "react";
 import Door from "../items/door";
+import Bathtub from "../items/bathtub";
 
 
 const Bathroom = ({handleClick}) => {
@@ -17,11 +18,20 @@ const Bathroom = ({handleClick}) => {
         doors: [
             {
             proto: Door,
+            route: "/hall",
             wall: "right",
-            positionLeft: 20,
-            color: "LightSeaGreen",
-            route: "/hall"
+            styles: {
+                left: 20,
+                background: "LightSeaGreen",
+                },
             }],
+        bathtub: {
+            proto: Bathtub,
+            styles: {
+                top: 50,
+                left: 50
+            }
+        }
     }
 
 

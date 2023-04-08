@@ -2,6 +2,7 @@ import image from "../assets/courageCss.jpg"
 // import Poster from "../items/poster"
 // import Door from"../items/door"
 import PlaceholderBox from "../items/placeholderBox"
+import Bathtub from "../items/bathtub"
 // import Bed from "../items/bed"
 import React from "react"
 
@@ -92,7 +93,8 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 width: data?.roomWidth,
                                 height: data?.roomLength,                              
                                 }}>floor
-                    {items?.placeholderBox && <PlaceholderBox></PlaceholderBox>}
+                    {items?.bathtub && <Bathtub data={items?.bathtub}></Bathtub>}
+                    {items?.placeholderBox && <PlaceholderBox data={items?.placeholderBox}></PlaceholderBox>}
                     {items?.tvs && <Television data={tvData}/>}
                     <div className="leftClip clipping" style={{
                                 width: data?.roomWidth + 25,

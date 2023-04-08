@@ -9,10 +9,10 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
 
 
     if (!custom) {
-
+        console.log("TEST",data?.data?.styles)
         return (
             <div className="placeholderContainer">qwer
-                <div className="placeholderOrigin">asdf
+                <div className="placeholderOrigin" style={{...data.styles}}>asdf
                     <div className="placeholderLeft" >zxcv</div>
                     <div className="placeholderRight">zxcv</div>
                     <div className="placeholderTop">zxcv</div>

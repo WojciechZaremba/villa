@@ -60,9 +60,6 @@ const TV = ({data}) => {
         elevation: 0
     }
 
-
-
-
    function handleClick() {
         // setCount(count + 1)
         setCount((count => {
@@ -88,7 +85,7 @@ const TV = ({data}) => {
 
     return (
         <div id="test" className="TVContainer" onClick={() =>{handleClick()}}>
-            <div className="TVOrigin" 
+            {/* <div className="TVOrigin" 
                 style={{
                     position: "relative",
                     top: `${data?.positionTop}px`,
@@ -96,7 +93,10 @@ const TV = ({data}) => {
                     transform: `rotateX(0deg) rotateY(0deg) rotateZ(${data?.rotationDeg}deg) 
                                 translate3d(0px,0px, 0px)`,
                     transformOrigin: "centre"
-                }}>{count}
+                }}> */}
+            <div className="TVOrigin" 
+                style={{...data.styles, position: "relative", width: 0, height: 0}}>
+                    {count}
                 <PlaceholderBox data={screenData} custom={true} clickable={true}/>   
                 <PlaceholderBox data={base} custom={true} clickable={true}/>   
             </div>

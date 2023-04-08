@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 const Door = ({data}) => {
-    console.log("%cDoor component","color: red", data.positionLeft)
+    console.log("%cDoor component","color: red", data)
     const nav = useNavigate()
 
     const doorLeft = data?.positionLeft
@@ -9,10 +9,11 @@ const Door = ({data}) => {
     return (
         <div className="door"
                 onClick={() => nav(`${data?.route}`)}
-                style={{
-                    backgroundColor: data?.color,
-                    left: data?.positionLeft,
-                }}
+                // style={{
+                //     backgroundColor: data?.color,
+                //     left: data?.positionLeft,
+                // }}
+                style={{...data.styles}}
         >door</div>
     );
 }
