@@ -32,7 +32,7 @@ const TV = ({data}) => {
   },[]);
 
 
-    console.log("%cTV DATA","color: black", data)
+    // console.log("%cTV DATA","color: black", data)
     const screen = {
         backgroundImage: noSignal,
         backgroundColorLeft: "white",
@@ -67,9 +67,9 @@ const TV = ({data}) => {
             localStorage.setItem('count', newCount)
             return newCount
         }))
-        console.log(count % 2)
+        // console.log(count % 2)
         // if (count > 5) {
-        //     console.log("%cbigger than 15","color: magenta")
+        // //     console.log("%cbigger than 15","color: magenta")
         //     setScreenData({...screenData, backgroundImage: "none"})}
         count % 2 == 1 && setScreenData({...screenData, 
             backgroundImage: "none",

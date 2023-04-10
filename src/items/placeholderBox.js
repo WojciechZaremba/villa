@@ -5,11 +5,11 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
     
     let customClasses = ""
     clickable && (customClasses = customClasses.concat(" ", "clickable"))
-    console.log(customClasses)
+    // console.log(customClasses)
 
 
     if (!custom) {
-        console.log("TEST",data?.data?.styles)
+        // console.log("TEST",data?.data?.styles)
         return (
             <div className="placeholderContainer">qwer
                 <div className="placeholderOrigin" style={{...data.styles}}>asdf
@@ -35,7 +35,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
         const border = data.border
         const boxShadow = data.boxShadow
 
-        console.log('%ccustomImage', "color: brown", customImage)
+        // console.log('%ccustomImage', "color: brown", customImage)
 
         return (
             <div className="placeholderContainer">
