@@ -17,7 +17,7 @@ import Bathroom from './rooms/bathroom';
 import Storage from './rooms/storage';
 import Popup from './functionalComponents/popup';
 import CourageView from './rooms/courageView';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 
 // for rooms generator:
@@ -36,6 +36,7 @@ function App() {
   const [fadingOut, setFading] = useState(false);
   const [popup, setPopup] = useState(false);
   const [popElement, setPopElement] = useState(null);
+  
   function handleClick(e) {
     // setFading(!fadingOut)
     setPopup(!popup)
@@ -212,6 +213,13 @@ function App() {
   //     return storedHouse !== null ? storedHouse : backroomsGen();
   //   });
   const [backrooms, setBackrooms] = useState(backroomsGen());
+  const [links, setLinks] = useState(() => {
+    let links = []
+    for (let room of backrooms.props.children) links.push(room.props.path)
+    return links
+  })
+ 
+  
 // setHouse((house => {
 //     const newHouse = randRoomsGenerator()
 //     localStorage.setItem('house', newHouse)
@@ -221,20 +229,19 @@ function App() {
   // console.log("here ",localStorage.getItem('house'))
 
   // console.log(randRoomsGenerator())
+  console.log(links)
 
   return (
     // <Router>
     <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
         <header className="App-header">
-          <Navbar />
+          <Navbar links={links}/>
         </header>
         <div className="container">
           <SwitchTransition>
             <CSSTransition key={location.pathname} timeout={400} classNames="fade" unmountOnExit>
               <Routes location={location}>
-                <>
                 <Route exact path="/" element={<Navigate to="/bedroom" />} />
-                </>
                 <Route path="/bedroom" element={<Bedroom handleClick={handleClick} />} />
                 <Route path="/hall" element={<Hall handleClick={handleClick}/>} />
                 <Route path="/storage" element={<Storage handleClick={handleClick}/>} />

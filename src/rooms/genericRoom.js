@@ -68,7 +68,7 @@ const GenericRoom = ({data, items, handleClick}) => {
             // console.log("DOORS",doors[i])
         }
         // console.log(doorsComponenets)
-        return (<div class="doors" 
+        return (<div className="doors" 
                     style={{display: 'flex', justifyContent: "space-around"
 
                 }}
