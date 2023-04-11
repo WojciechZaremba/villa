@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 const Door = ({data}) => {
-    console.log("%cDoor component","color: red", data)
+    // console.log("%cDoor component","color: red", data)
     const nav = useNavigate()
 
     const doorLeft = data?.positionLeft

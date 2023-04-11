@@ -31,11 +31,6 @@ const Hall = ({handleClick}) => {
                 width: 116,
                 height: 160,
             },
-            image: panOdKota,
-            positionTop: "78px",
-            positionLeft: "320px",
-            width: "116px",
-            height: "160px",
         },
         {
             proto: Poster,

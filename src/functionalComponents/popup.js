@@ -2,7 +2,7 @@ import './popup.css'
 import Poster from '../items/poster';
 
 const Popup = (props) => {
-    console.log("%cPopup component","color: yellow")
+    // console.log("%cPopup component","color: yellow")
     let imgUrl
     let propWidth
     let propHeight

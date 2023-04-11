@@ -7,35 +7,35 @@ import Bathtub from "../items/bathtub"
 import React from "react"
 
 
-// console.log("%cimported door:","color: yellow",Door)
+// // console.log("%cimported door:","color: yellow",Door)
 
-// console.log(image)
+// // console.log(image)
 
 const GenericRoom = ({data, items, handleClick}) => {
 
-    console.log("%cTelevision","color: pink",items?.tvs)
+    // console.log("%cTelevision","color: pink",items?.tvs)
     const Television = items?.tvs?.[0]?.proto
     const tvData = items?.tvs?.[0]
 
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7;
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2);
 
-   console.log("%cdoor passed as a prop","color: magenta",items?.doors[0]?.proto)
+//    console.log("%cdoor passed as a prop","color: magenta",items?.doors[0]?.proto)
    const PosterProto = items?.posters?.[0]?.proto
    const DoorProto = items?.doors[0]?.proto
 
 
-    // console.log(items?.poster?.image)
-    // console.log("all items", items)
+    // // console.log(items?.poster?.image)
+    // // console.log("all items", items)
 
     // const image = items?.poster?.image
 
     function postersProcessor(plane) {
-        // console.log("plane",plane)
-        // console.log("items processor",items?.posters)
+        // // console.log("plane",plane)
+        // // console.log("items processor",items?.posters)
         let postersNum = items?.posters?.length
         let posters = items?.posters
-        // console.log(postersNum)
+        // // console.log(postersNum)
 
         let postersComponents = []
         for (let i = 0; i < postersNum; i++) {
@@ -46,9 +46,9 @@ const GenericRoom = ({data, items, handleClick}) => {
                 // postersComponents.push(<div>{React.cloneElement(doorProto, {data:posters[i],key:{i},handleClick:{handleClick}} )}</div>)
                 postersComponents.push(<PosterProto data={posters[i]} key={i} handleClick={handleClick} />)
             }
-            // console.log(posters[i])
+            // // console.log(posters[i])
         }
-        // console.log("test",postersComponents)
+        // // console.log("test",postersComponents)
         return <div>{postersComponents}</div>
     }
     // postersProcessor("")
@@ -56,29 +56,33 @@ const GenericRoom = ({data, items, handleClick}) => {
     function doorsProcessor(plane) {
         let doorsNum = items?.doors?.length;
         let doors = items?.doors
-        console.log(items?.doors)
+        // console.log(items?.doors)
 
         let doorsComponenets = []
         for (let i = 0; i < doorsNum; i++) {
             //const DoorProto = doors[i].proto
-            console.log(doors[i]?.wall == plane)
+            // console.log(doors[i]?.wall == plane)
             if (doors[i].wall == plane) {
                 doorsComponenets.push(<DoorProto data={items.doors[i]} key={i}></DoorProto>)
             }
-            console.log("DOORS",doors[i])
+            // console.log("DOORS",doors[i])
         }
-        console.log(doorsComponenets)
-        return <div>{doorsComponenets}</div>
+        // console.log(doorsComponenets)
+        return (<div class="doors" 
+                    style={{display: 'flex', justifyContent: "space-around"
+
+                }}
+                    >{doorsComponenets}</div>)
     }
     //doorsProcessor("")
 
 
     function universalItemProcessor(plane) {
         const categories = Object.keys(items);
-        console.log("universal: ", categories);
+        // console.log("universal: ", categories);
 
         for (let i = 0; i < categories.length; i++) {
-            console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
+            // console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
         }
     }
    // universalItemProcessor();
@@ -89,7 +93,8 @@ const GenericRoom = ({data, items, handleClick}) => {
         <div className='genericRoom'>genericRoom: {data?.roomName}
             <div className='genericRoomOrigin' style={{left: roomOffset, top: roomOffsetVert}}>
                 <div    className="floor" style={{
-                                backgroundColor: data?.floorColor,
+                                // backgroundColor: data?.floorColor,
+                                backgroundColor: data.floorColor,
                                 width: data?.roomWidth,
                                 height: data?.roomLength,                              
                                 }}>floor
@@ -106,7 +111,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                         {/* {items?.poster?.wall == "floor" && <Poster data={items} handleClick={handleClick} image={image}/>} */}
                 </div>
                 <div className="rightWall" style={{
-                                backgroundColor: data?.rightWallColor,
+                                backgroundColor: data?.rightWallColor || data?.wallsColor,
                                 width: data?.roomWidth,
                                 height: data?.roomHeight, 
                                 }}>rightWall
@@ -125,7 +130,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 }}>topClip</div>
                 </div>
                 <div className="leftWall" style={{
-                                backgroundColor: data?.leftWallColor,
+                                backgroundColor: data?.leftWallColor || data?.wallsColor,
                                 width: data?.roomLength,
                                 height: data?.roomHeight, 
                                 }}>leftWall

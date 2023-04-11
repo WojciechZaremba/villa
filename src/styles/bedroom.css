@@ -70,7 +70,7 @@ code {
   background-size: cover;
   background-repeat: no-repeat;
   transform: rotateX(180deg);
-  box-shadow: inset -17px -19px 64px -36px rgb(255 255 255), 7px -3px 16px -3px rgba(66, 68, 90, 0.767);
+  box-shadow: inset -17px -19px 64px -36px rgb(255 255 255), 7px -3px 16px -3px rgba(66, 68, 90, 0.63);
   border: 5px inset #FFFFFF;
   cursor: pointer;
 }
