@@ -30,6 +30,7 @@ import TV from './items/tv';
 
 
 function App() {
+  console.log("%cApp","color: pink")
   let location = useLocation();
   const currentOutlet = useOutlet();
   const [fadingOut, setFading] = useState(false);
@@ -62,7 +63,18 @@ function App() {
 
     // doesn't matter if the rooms overlap
     // \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-  const randRoomsGenerator = function() {
+
+
+
+    
+    // useEffect(() => {
+      //   randRoomsGenerator()
+  // }, [])
+
+  const treeGen = function() {
+    console.log("treeGen")
+     // console.log("here here",localStorage.getItem('house'))
+
     const roomsNumber = Math.floor(Math.random() * 5 + 5) // 5 - 10
     const randDimension = () => Math.floor(Math.random() * 500 + 300) // 300 - 800
     const randColor = () => Math.floor(Math.random() * 0xFFFFFF).toString(16) // all hex colors
@@ -78,8 +90,8 @@ function App() {
       data: {
           roomWidth: randDimension(),
           roomLength: randDimension(),
-          wallsColor: randColor(),
-          floorColor: randColor(),
+          wallsColor:`#${randColor()}`,
+          // floorColor: `#${randColor()}`,
           items: {
             posters: null,
             tvs: null,
@@ -106,8 +118,8 @@ function App() {
           roomWidth: randDimension(),
           roomLength: randDimension(),
           roomHeight: 300,
-          wallsColor: randColor(),
-          floorColor: randColor(),
+          wallsColor: `#${randColor()}`,
+          // floorColor: `#${randColor()}`,
           items: {
             posters: null,
             tvs: null,
@@ -117,8 +129,9 @@ function App() {
               route: parent.path,
               wall: "right",
               styles: {
+                position: "static",
                   left: 50,
-                  background: "Pink",
+                  background: "black",
                   },
                 }]
               },
@@ -128,56 +141,90 @@ function App() {
       parent.children.push(node)
       parent.doorsNum++
     }
-
-    ///// ADD DOORS TO THE NODES
+    
+    ///// ADD DOORS TO THE NODES (and remove circularity to be able to store it in da Local Storage)
     for (let i = 0; i < genRoomsArr.length; i++) {
       const currRoom = genRoomsArr[i]
       const currDoors = currRoom.data.items.doors
 
-      console.log('room', i, "has", currRoom.doorsNum, 'doors')
-      console.log(currRoom.children.length,"doors lead to the deeper rooms")
-
+      //console.log('room', i, "has", currRoom.doorsNum, 'doors')
+      //console.log(currRoom.children.length,"doors lead to the deeper rooms")
+      
       
       for (let j = 0; j < currRoom.children.length; j++) {
         const currRoute = currRoom.children[j].path
         currDoors.push({
           proto: Door,
           route: currRoute,
-          wall: "right",
+          // wall: "right",
+          // wall: "left",
+          wall: Math.random() > .5 ? "right" : "left",
           styles: {
-              left: 50,
-              background: "Pink",
-              },
-            })
+            position: "static",
+            // left: 50,
+            // left: Math.floor(Math.random() * 400),
+            background: "Pink",
+            },
+          })
         // const currRoute = currRoom.children?.[j].path
         // currRoom.items.doors.push({proto: Door, route: currRoute})
       }
+      currRoom.children = undefined
+      currRoom.parent = undefined
     }
-
-    ///// CREATE READY ROOMS
+    //console.log(genRoomsArr)
+    return genRoomsArr
+  }
+  
+  ///// CREATE READY ROOMS
+  const backroomsGen = function() {
+    let genRoomsArr = treeGen()
+    // const stored = localStorage.getItem("backrooms")
+    // if (stored !== null) {
+    //   // genRoomsArr = JSON.parse(stored)
+    //   genRoomsArr = treeGen()
+    //   console.log(stored)
+    //   console.log(JSON.parse(stored))
+    // } else {
+    //   genRoomsArr = treeGen()
+    // }
+   // localStorage.setItem("backrooms", JSON.stringify(genRoomsArr))
+    // console.log(genRoomsArr)
     const ready = []
+
     for (let i = 0; i < genRoomsArr.length; i++) {
       const data = genRoomsArr[i].data
       const items = genRoomsArr[i].data.items
       const route = genRoomsArr[i].path
-      console.log(route)
+      // console.log(route)
 
       ready.push(<Route id={i} path={route} 
-        element={<GenericRoom data={data} items={items} handleClick={handleClick} />} />)
-      // ready.push(<Route key={i} path={i} 
-      //   element={ <GenericRoom data={data} items={items} handleClick={handleClick} />} 
-      //   />)
+        element={<GenericRoom key={i} data={data} items={items} handleClick={handleClick} />} />)
     }
-    console.log("ready",typeof ready)
-
+    // console.log(ready)
+    
     return (<>{ready}</>)
   }
+  
+  // const [backrooms, setBackrooms] = useState(() => {
+  //     // console.log(localStorage.getItem('house'))
+  //     const storedHouse = localStorage.getItem('backrooms');
+  //     return storedHouse !== null ? storedHouse : backroomsGen();
+  //   });
+  const [backrooms, setBackrooms] = useState(backroomsGen());
+// setHouse((house => {
+//     const newHouse = randRoomsGenerator()
+//     localStorage.setItem('house', newHouse)
+//     return newHouse
+//   }))
 
-  console.log(randRoomsGenerator())
+  // console.log("here ",localStorage.getItem('house'))
+
+  // console.log(randRoomsGenerator())
 
   return (
     // <Router>
-      <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
+    <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
         <header className="App-header">
           <Navbar />
         </header>
@@ -194,7 +241,8 @@ function App() {
                 <Route path="/bathroom" element={<Bathroom handleClick={handleClick}/>} />
                 <Route path="/courageView" element={<CourageView />} />
                 <Route path="/genericRoom" element={<GenericRoom />} />
-              {randRoomsGenerator()}
+              {/* {backroomsGen()} */}
+              {backrooms}
               </Routes>
             </CSSTransition>
           </SwitchTransition>

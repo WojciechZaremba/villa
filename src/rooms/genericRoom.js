@@ -68,7 +68,11 @@ const GenericRoom = ({data, items, handleClick}) => {
             // console.log("DOORS",doors[i])
         }
         // console.log(doorsComponenets)
-        return <div>{doorsComponenets}</div>
+        return (<div class="doors" 
+                    style={{display: 'flex', justifyContent: "space-around"
+
+                }}
+                    >{doorsComponenets}</div>)
     }
     //doorsProcessor("")
 
@@ -89,7 +93,8 @@ const GenericRoom = ({data, items, handleClick}) => {
         <div className='genericRoom'>genericRoom: {data?.roomName}
             <div className='genericRoomOrigin' style={{left: roomOffset, top: roomOffsetVert}}>
                 <div    className="floor" style={{
-                                backgroundColor: data?.floorColor,
+                                // backgroundColor: data?.floorColor,
+                                backgroundColor: data.floorColor,
                                 width: data?.roomWidth,
                                 height: data?.roomLength,                              
                                 }}>floor
@@ -106,7 +111,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                         {/* {items?.poster?.wall == "floor" && <Poster data={items} handleClick={handleClick} image={image}/>} */}
                 </div>
                 <div className="rightWall" style={{
-                                backgroundColor: data?.rightWallColor,
+                                backgroundColor: data?.rightWallColor || data?.wallsColor,
                                 width: data?.roomWidth,
                                 height: data?.roomHeight, 
                                 }}>rightWall
@@ -125,7 +130,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                                 }}>topClip</div>
                 </div>
                 <div className="leftWall" style={{
-                                backgroundColor: data?.leftWallColor,
+                                backgroundColor: data?.leftWallColor || data?.wallsColor,
                                 width: data?.roomLength,
                                 height: data?.roomHeight, 
                                 }}>leftWall
