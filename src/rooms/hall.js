@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import GenericRoom from './genericRoom';
 import chojrak from "../assets/courageCss.jpg";
@@ -15,8 +14,6 @@ const Hall = ({handleClick}) => {
         roomHeight: 300,
         rightWallColor: "DarkSlateGrey",
         leftWallColor: "DarkSlateGrey",
-        // rightWallColor: "lightcoral",
-        // leftWallColor: "lightcoral",
         floorColor: "whitesmoke",
     });
     const items = {
@@ -41,7 +38,7 @@ const Hall = ({handleClick}) => {
                 top: "78px",
                 left: "80px",
                 width: "116px",
-                height: "160px"
+                height: 160
                 },
         }],
         doors: [{
@@ -63,9 +60,10 @@ const Hall = ({handleClick}) => {
             },
         }]
     }
+
     return (
             <GenericRoom data={data} items={items} handleClick={handleClick} />
-    );
+    )
 }
 
-export default Hall;
+export default Hall

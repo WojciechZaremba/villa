@@ -3,27 +3,6 @@ import { useState } from "react";
 import Door from "../items/door";
 import PlaceholderBox from "../items/placeholderBox";
 
-const items = {
-    doors: [
-        {
-        proto: Door,
-        wall: "left",
-        route: "/bedroom",
-        styles: {
-            left: 20,
-            background: "Sienna",
-            },
-        }],
-    placeholderBox: {
-        wall: "floor",
-        styles: {
-            top: 0,
-            left: 80,
-            width: 100, // dont work yet if not custom
-            height: 100,
-        },
-    },
-}
 
 const Storage = ({handleClick}) => {
     const [data, setData] = useState({
@@ -34,7 +13,28 @@ const Storage = ({handleClick}) => {
         rightWallColor: "brown",
         leftWallColor: "brown",
     });
-
+    const items = {
+        doors: [
+            {
+            proto: Door,
+            wall: "left",
+            route: "/bedroom",
+            styles: {
+                left: 20,
+                background: "Sienna",
+                },
+            }],
+        placeholderBox: {
+            wall: "floor",
+            styles: {
+                top: 0,
+                left: 80,
+                width: 100, // dont work yet if not custom (fixed ???)
+                height: 100,
+            },
+        },
+    }
+    
 
     return <GenericRoom data={data} items={items} handleClick={handleClick} />
 }
