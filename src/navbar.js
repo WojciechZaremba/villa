@@ -14,9 +14,7 @@ const Navbar = ({links}) => {
             <Link to="/hall">hall</Link> <br/>
             <Link to="/bathroom">bathroom</Link> <br/>
             <Link to="/storage">storage</Link> <br/>
-            <>
             {backLinks}
-            </>
         </nav>
     );
 }

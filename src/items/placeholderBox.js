@@ -2,14 +2,10 @@ import "./placeholderBox.css"
 
 
 const PlaceholderBox = ({data, custom = false, clickable = false}) => {
-    
     let customClasses = ""
     clickable && (customClasses = customClasses.concat(" ", "clickable"))
-    // console.log(customClasses)
-
 
     if (!custom) {
-        // console.log("TEST",data?.data?.styles)
         return (
             <div className="placeholderContainer">qwer
                 <div className="placeholderOrigin" style={{...data.styles}}>asdf
@@ -21,7 +17,6 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
         )
 
     } else {
-
         const customWidth = data.width
         const customHeight = data.height
         const customDepth = data.depth
@@ -35,20 +30,15 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
         const border = data.border
         const boxShadow = data.boxShadow
 
-        // console.log('%ccustomImage', "color: brown", customImage)
-
         return (
             <div className="placeholderContainer">
                 <div className="placeholderOrigin" 
-                    style={{
-                        transform: `translate3d(0,0,${customElevation}px)`,
-                        left: custompostitionLeft,
-                        top: customPostitionRight
-                        }}>
+                    style={{transform: `translate3d(0,0,${customElevation}px)`,
+                            left: custompostitionLeft,
+                            top: customPostitionRight}}>
                     <div className={`placeholderLeft ${customClasses}`}
                         style={{
                             backgroundImage: `url(${customImage})`,
-                            // backgroundImage: `none`,
                             backgroundColor: customColorLeft,
                             border: `solid #111 ${border}px`,
                             boxSizing: "border-box",

@@ -34,7 +34,6 @@ const Bathroom = ({handleClick}) => {
         }
     }
 
-
     return <GenericRoom data={data} items={items} handleClick={handleClick} />
 }
 

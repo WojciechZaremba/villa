@@ -1,6 +1,5 @@
 import imageColors from "../assets/kolory10.jpg"
 import imageMan from "../assets/panOdKota.jpg"
-import { Link } from 'react-router-dom';
 import GenericRoom from './genericRoom';
 import { useState } from 'react';
 
@@ -21,132 +20,58 @@ const Bedroom = ({handleClick}) => {
         leftWallColor: "lightblue",
         floorColor: "whitesmoke",
     });
-    // const [items, setItems] = useState({
-    //     poster: {
-    //         source: "../items/poster",
-    //         positionTop: ,
-    //         positionLeft: ,
-    //     },
-    //     carpet: {
-    //         positionTop: ,
-    //         positionLeft: ,
-    //         color: ,
-    //     }
 
-    // })
     const items = {
-        posters: [
-            {
-            proto: Poster,
+        posters: [{proto: Poster,
             handler: handleClick,
             wall: "left",
-            styles: {
-                backgroundImage: `url(${imageColors})`,
-                width: 160,
-                height: 120,
-                left: 80,
-                top: 115,
-                },
-            },
-            {
-            proto: Poster,
+            styles: {backgroundImage: `url(${imageColors})`,
+                    width: 160,
+                    height: 120,
+                    left: 80,
+                    top: 115,
+                    },},
+            { proto: Poster,
             handler: handleClick,
             wall: "left",
-            styles: {
-                backgroundImage: `url(${imageMan})`,
+            styles: {  backgroundImage: `url(${imageMan})`,
                 width: 110,
                 height: 110,
                 left: 310,
-                top: 88,
-                },
-            }
-        ],
+                top: 88 }}],
         doors: [
-            {
-            proto: Door,
+            { proto: Door,
             route: "/storage",
             wall: "right",
             styles: {
                 left: 320,
                 background: "Sienna",
-                },
-            },
-            {
-            proto: Door,
+                }},
+            { proto: Door,
             route: "/hall",
             wall: "right",
             styles: {
                 left: 120,
                 background: "Pink",
-                },
-            }],
+                }}],
         placeholderBox: {
-            styles: {
-                left: 3,
-                top: 9,
-            },
-            // width: 160,
-            // height: 120,
-            // wall: "floor"
+            styles: {left: 3, top: 9},
         },
-        bed: {
-            proto: Bed,
-            styles: {
-                top: 88,
-                left: 80,
-            }
+        bed: { proto: Bed,
+                styles: {top: 88,
+                        left: 80 }
         },
-        // tvs: [{
-        //     proto: TV,
-        //     positionTop: 100,
-        //     positionLeft: -100,
-        //     elevation: 0,
-        //     rotationDeg: 285
-        // }]
         tvs: [{
             proto: TV,
-            styles: {
-                top: 415,
-                left: 100,
-                elevation: 0,
-                transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
-                translate3d(0px,0px, 0px)`,
-                transformOrigin: "centre"
-            }
+            styles: { top: 415,
+                    left: 100,
+                    elevation: 0,
+                    transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
+                    translate3d(0px,0px, 0px)`,
+                    transformOrigin: "centre" }
         }]
     }
-    
-
-    return (
-            <GenericRoom data={data} items={items} handleClick={handleClick} />
-
-
-        // <div className="genericRoom bedroom">Bedroom
-        //     <div className="genericRoomOrigin bedroomOrigin">
-        //         <div className="floor">floor
-        //             <div className="leftClip clipping">leftClip</div>
-        //             <div className="rightClip clipping">rightClip</div>
-        //             <div className="carpet">carpet</div>
-        //             {/* <div className="floorLight">light</div> */}
-        //         </div>
-        //         {/* <GenericRoom></GenericRoom> */}
-        //         <div className="rightWall">rightWall
-        //             <div className="door">door
-        //                 < Link to={`/hall`} />
-        //             </div>
-        //             <div className="rightClip clipping">rightClip</div>
-        //             <div className="topClip clipping">topClip</div>
-        //             <div className="wallLight">light</div>
-        //             <div className="poster" onClick={handleClick}>poster</div>
-        //         </div>
-        //         <div className="leftWall">leftWall
-        //             <div className="window">window</div>
-        //             <div className="leftClip clipping">leftClip</div>
-        //             <div className="topClip clipping">topClip</div>
-        //         </div>
-        //     </div>
-        // </div>
-    );
+    return (<GenericRoom data={data} items={items} handleClick={handleClick} />)
 }
 
 export default Bedroom;

@@ -2,7 +2,6 @@ import './popup.css'
 import Poster from '../items/poster';
 
 const Popup = (props) => {
-    // console.log("%cPopup component","color: yellow")
     let imgUrl
     let propWidth
     let propHeight
@@ -12,7 +11,7 @@ const Popup = (props) => {
     let imagesArray = [...roomImages]
     index = imagesArray.indexOf(props.popElement)
     
-    function imageSwapper(e) {
+    function imageSwapper(e) { // image swapper swaps images
         const imageToSwap = document.getElementsByClassName("popup-poster")[0]
         let nextImage
         let nextWidth
@@ -45,15 +44,12 @@ const Popup = (props) => {
 
     if (props.popElement) {
         imgUrl = window.getComputedStyle(props.popElement).backgroundImage
-        // console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeee",imgUrl)
         propWidth = window.getComputedStyle(props.popElement).width
         propWidth = parseInt(propWidth.substring(0, propWidth.length - 2), 10) //string px to a number
         propHeight = window.getComputedStyle(props.popElement).height
         propHeight = parseInt(propHeight.substring(0, propHeight.length - 2), 10) //string px to a number
-        // console.log(imgUrl)
-        // console.log(typeof propWidth)
-        // console.log(typeof propHeight)
     }
+    
     return (props.trigger &&
         <div className="popup">
             <div className="popup-inner">
