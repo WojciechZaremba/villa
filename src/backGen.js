@@ -57,7 +57,7 @@ const backroomsGen = function(handleClick) {
       if (Math.random() < i / roomsNumber && genRoomsArr.length) {
         parent = genRoomsArr[Math.floor(Math.random() * genRoomsArr.length)];
       }
-      const node = {
+      let node = {
         roomId: i,
         path: `/gen${i}`,
         parent: parent,
@@ -72,7 +72,7 @@ const backroomsGen = function(handleClick) {
           items: {
             posters: null,
             tvs: null,
-            placeholderBox: {styles: {left: 0, top: 0},},
+            placeholderBox: null,
             doors: [{ proto: Door,
                       route: parent.path,
                       wall: "right",
@@ -106,14 +106,25 @@ const backroomsGen = function(handleClick) {
                     background: "Pink" }})
       }
 
-      // if (Math.random() > .5) {
-      if (true) {
-        console.log(currPlaceholders)
-        currPlaceholders.styles.left = Math.random() * (currDimensions.width - 100)
-        currPlaceholders.styles.top = Math.random() * (currDimensions.length - 100)
-        // currPlaceholders = {styles: {top: 300, left: 300}}
+      if (Math.random() > .8) {
+        currRoom.data.items.placeholderBox = {
+          styles: {
+            top: Math.random() * (currDimensions.length - 100),
+            left: Math.random() * (currDimensions.width - 100)}}
       }
-      console.log("put box here")
+      if (Math.random() > 0) {
+        console.log(`tvInRoom#${i}`)
+        currRoom.data.items.tvs = [{
+          proto: TV,
+          customClass: `tvInRoom#${i}`,
+          styles: { top: 415,
+                  left: 100,
+                  elevation: 0,
+                  transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
+                  translate3d(0px,0px, 0px)`,
+                  transformOrigin: "centre" }
+        }]
+      }
 
       // code below removes circularity from the tree
       currRoom.children = undefined

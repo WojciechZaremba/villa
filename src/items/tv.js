@@ -3,10 +3,20 @@ import noSignal from "../assets/noSignal.gif"
 import { useState, useEffect } from 'react';
 
 const TV = ({data}) => {
+    // const [count, setCount] = useState(() => {
+    //     const storedCount = localStorage.getItem('count');
+    //     return storedCount !== null ? Number(storedCount) : 0;
+    // });
+
     const [count, setCount] = useState(() => {
-        const storedCount = localStorage.getItem('count');
+        const storedCount = localStorage.getItem(`${data.customClass}`);
         return storedCount !== null ? Number(storedCount) : 0;
     });
+
+
+
+
+
     const [screenData, setScreenData] = useState({
         backgroundImage: count % 2 === 1 ? noSignal : "none",
         backgroundColorLeft: "white",
@@ -42,10 +52,13 @@ const TV = ({data}) => {
         elevation: 0
     }
 
-   function handleClick() {
+   function handleClick(e) {
+    console.log(e.target)
+    console.log(data.customClass)
         setCount((count => {
             const newCount = count + 1
-            localStorage.setItem('count', newCount)
+            // const newCount = localStorage.getItem(`${data.customClass}`) + 1
+            localStorage.setItem(`${data.customClass}`, newCount)
             return newCount
         }))
         count % 2 === 1 && setScreenData({...screenData, 
@@ -58,9 +71,11 @@ const TV = ({data}) => {
         })
    }
 
+   console.log(data.customClass)
+
     return (
-        <div id="test" className="TVContainer" onClick={() =>{handleClick()}}>
-            <div className="TVOrigin" style={{...data.styles, position: "relative", width: 0, height: 0}}>
+        <div id="test" className="TVContainer" onClick={(e) =>{handleClick(e)}}>
+            <div className={`TVOrigin ${data.customClass}`} style={{...data.styles, position: "relative", width: 0, height: 0}}>
                 {count}
                 <PlaceholderBox data={screenData} custom={true} clickable={true}/>   
                 <PlaceholderBox data={base} custom={true} clickable={true}/>   
