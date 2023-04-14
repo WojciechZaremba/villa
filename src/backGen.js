@@ -6,6 +6,7 @@ import GenericRoom from './rooms/genericRoom';
 import Door from './items/door';
 import Poster from './items/poster';
 import TV from './items/tv';
+import PlaceholderBox from "./items/placeholderBox";
 // import GenRoom from './generatedRoom'
 
 ///// CREATE READY ROOMS
@@ -39,17 +40,18 @@ const backroomsGen = function(handleClick) {
       data: {
           roomWidth: randDimension(),
           roomLength: randDimension(),
+          roomHeight: 300,
           wallsColor:`#${randColor()}`,
           // floorColor: `#${randColor()}`,
           items: {posters: null,
                   tvs: null,
-                  placeholders: null,
+                  placeholderBox: {styles: {left: 0, top: 0},},
                   doors: [] }
       }
     }
 
     const genRoomsArr = [root]
-    
+
     for (let i = 1; i <= roomsNumber; i++) {
       let parent = root
       if (Math.random() < i / roomsNumber && genRoomsArr.length) {
@@ -70,7 +72,7 @@ const backroomsGen = function(handleClick) {
           items: {
             posters: null,
             tvs: null,
-            placeholders: null,
+            placeholderBox: {styles: {left: 0, top: 0},},
             doors: [{ proto: Door,
                       route: parent.path,
                       wall: "right",
@@ -89,6 +91,10 @@ const backroomsGen = function(handleClick) {
     for (let i = 0; i < genRoomsArr.length; i++) {
       const currRoom = genRoomsArr[i]
       const currDoors = currRoom.data.items.doors
+      let currPlaceholders = currRoom.data.items.placeholderBox
+      const currTVs = currRoom.data.items.tvs
+
+      const currDimensions = {length: currRoom.data.roomLength, width: currRoom.data.roomWidth}
 
       for (let j = 0; j < currRoom.children.length; j++) {
         const currRoute = currRoom.children[j].path
@@ -99,6 +105,17 @@ const backroomsGen = function(handleClick) {
           styles: { position: "static",
                     background: "Pink" }})
       }
+
+      // if (Math.random() > .5) {
+      if (true) {
+        console.log(currPlaceholders)
+        currPlaceholders.styles.left = Math.random() * (currDimensions.width - 100)
+        currPlaceholders.styles.top = Math.random() * (currDimensions.length - 100)
+        // currPlaceholders = {styles: {top: 300, left: 300}}
+      }
+      console.log("put box here")
+
+      // code below removes circularity from the tree
       currRoom.children = undefined
       currRoom.parent = undefined
     }
