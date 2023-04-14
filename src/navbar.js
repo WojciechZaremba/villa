@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const Navbar = ({links}) => {
-    console.log("nav", links)
     let backLinks = []
     for (let i = 0; i < links.length; i++) {
         backLinks.push(<><Link key={i} to={links[i]}> ---{i}--- </Link></>)
@@ -10,10 +9,10 @@ const Navbar = ({links}) => {
     return (
         <nav className="navbar">
             <h1>navigation</h1>
-            <Link to="/">home</Link> <br/>
-            <Link to="/hall">hall</Link> <br/>
-            <Link to="/bathroom">bathroom</Link> <br/>
-            <Link to="/storage">storage</Link> <br/>
+            <Link key={999} to="/">home</Link> <br/>
+            <Link key={9999} to="/hall">hall</Link> <br/>
+            <Link key={998} to="/bathroom">bathroom</Link> <br/>
+            <Link key={9998} to="/storage">storage</Link> <br/>
             {backLinks}
         </nav>
     );
