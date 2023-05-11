@@ -20,15 +20,16 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
         const customWidth = data.width
         const customHeight = data.height
         const customDepth = data.depth
-        const customColorLeft = data.backgroundColorLeft
-        const customColorRight = data.backgroundColorRight
-        const customColorTop = data.backgroundColorTop
+        const customColorLeft = data.backgroundColorLeft || ""
+        const customColorRight = data.backgroundColorRight || ""
+        const customColorTop = data.backgroundColorTop || ""
         const custompostitionLeft = data.postitionLeft
         const customPostitionRight = data.positionRight
         const customElevation = data.elevation
         const customImage = data.backgroundImage
         const border = data.border
         const boxShadow = data.boxShadow
+        const moreShadows = data.moreShadows || false
 
         return (
             <div className="placeholderContainer">
@@ -55,6 +56,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
+                        boxShadow: moreShadows.right || null,
                         width: customHeight,
                         height: customDepth,
                         left: customWidth,
@@ -66,6 +68,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
+                        boxShadow: moreShadows.left || null,
                         width: customHeight,
                         height: customDepth,
                         left: customWidth,

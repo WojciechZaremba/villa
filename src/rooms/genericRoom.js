@@ -7,12 +7,14 @@ import React from "react"
 const GenericRoom = ({data, items, handleClick}) => {
     const Television = items?.tvs?.[0]?.proto
     const tvData = items?.tvs?.[0]
+    const blackboardData = items?.blackboards?.[0]
 
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
 
     const PosterProto = items?.posters?.[0]?.proto
-    const DoorProto = items?.doors[0]?.proto
+    const DoorProto = items?.doors?.[0]?.proto
+    const BlackboardProto = items?.blackboards?.[0]?.proto
 
     function postersProcessor(plane) {
         let postersNum = items?.posters?.length
@@ -61,6 +63,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                     {items?.bathtub && <Bathtub data={items?.bathtub}></Bathtub>}
                     {items?.placeholderBox && <PlaceholderBox data={items?.placeholderBox}></PlaceholderBox>}
                     {items?.tvs && <Television data={tvData}/>}
+                    {items?.blackboards && <BlackboardProto data={blackboardData}/>}
                     <div className="leftClip clipping" 
                         style={{
                         width: data?.roomWidth + 25,

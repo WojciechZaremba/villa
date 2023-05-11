@@ -56,7 +56,7 @@ function App() {
         </header>
         <div className="container">
           <SwitchTransition>
-            <CSSTransition key={location.pathname} timeout={400} classNames="fade" unmountOnExit>
+            <CSSTransition key={location.pathname } timeout={400} classNames="fade" unmountOnExit>
               <Routes location={location}>
                 <Route exact path="/" element={<Navigate to="/bedroom" />} />
                 <Route path="/bedroom" element={<Bedroom handleClick={handleClick} />} />
