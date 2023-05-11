@@ -9,6 +9,7 @@ import Poster from "../items/poster";
 import PlaceholderBox from "../items/placeholderBox";
 
 import TV from "../items/tv";
+import Blackboard from "../items/blackboard";
 
 const Bedroom = ({handleClick}) => {
     const [data, setData] = useState({
@@ -67,8 +68,20 @@ const Bedroom = ({handleClick}) => {
                     left: 100,
                     elevation: 0,
                     transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
+                        translate3d(0px,0px, 0px)`,
+                    transformOrigin: "centre" 
+                    }
+        }],
+        blackboards: [{
+            proto: Blackboard,
+            styles: {
+                top: 415,
+                left: 400,
+                elevation: 0,
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(-20deg) 
                     translate3d(0px,0px, 0px)`,
-                    transformOrigin: "centre" }
+                transformOrigin: "centre"
+            }
         }]
     }
     return (<GenericRoom data={data} items={items} handleClick={handleClick} />)

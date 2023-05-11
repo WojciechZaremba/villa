@@ -13,10 +13,6 @@ const TV = ({data}) => {
         return storedCount !== null ? Number(storedCount) : 0;
     });
 
-
-
-
-
     const [screenData, setScreenData] = useState({
         backgroundImage: count % 2 === 1 ? noSignal : "none",
         backgroundColorLeft: "white",
