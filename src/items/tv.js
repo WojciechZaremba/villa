@@ -26,7 +26,10 @@ const TV = ({data}) => {
         elevation: 8,
         border: 6,
         boxShadow: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
-        cursor: "pointer"
+        cursor: "pointer",
+        moreShadows: {
+            ambientShadowBottom: true,
+        }
     });
 
   // Similar to componentDidMount and componentDidUpdate:
@@ -45,7 +48,10 @@ const TV = ({data}) => {
         depth: 50,
         postitionLeft: 60,
         positionRight: -15,
-        elevation: 0
+        elevation: 0,
+        moreShadows: {
+            ambientShadowBottom: true,
+        }
     }
 
    function handleClick(e) {

@@ -84,6 +84,17 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
                         height: customDepth,
                         transform: `translate3d(0, 0, ${customHeight}px)`
                 }}></div>
+                {data.moreShadows?.ambientShadowBottom && <div className={`placeholderBottom ${customClasses}`}
+                        style={{
+                        backgroundImage: `url(${""})`,
+                        backgroundColor: customColorTop,
+                        // left: data?.positionLeft,
+                        width: customWidth,
+                        height: customDepth,
+                        transform: `translate3d(0, 0, 0)`,
+                        boxShadow: `0px 0px 25px 2px rgb(0 0 0)`
+                }}></div>}
+                    
                 </div>
             </div>
         )
