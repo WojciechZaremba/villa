@@ -1,6 +1,11 @@
 .placeholderContainer {
     
 }
+
+.placeholderLeft, .placeholderRight, .placeholderDefHidden, .placeholderBottom {
+    position: absolute;
+}
+
 .placeholderOrigin {
     position: relative;
     top: 0px;

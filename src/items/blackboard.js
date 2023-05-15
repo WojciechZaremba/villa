@@ -39,7 +39,8 @@ const Blackboard = ({data}) => {
         positionRight: -15,
         boxShadow: "inset rgb(0, 0, 0, .3) 0px 40px 30px -20px",
         moreShadows: {
-            right: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset"
+            right: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset",
+            ambientShadowBottom: true,
         }
         // boxShadow: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset"
 
@@ -53,7 +54,8 @@ const Blackboard = ({data}) => {
         positionRight: -15,
         boxShadow: "inset rgb(0, 0, 0, .3) 0px 40px 30px -20px",
         moreShadows: {
-            left: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset"
+            left: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset",
+            ambientShadowBottom: true,
         }
     }
 
