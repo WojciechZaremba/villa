@@ -1,20 +1,24 @@
 import PlaceholderBox from "./placeholderBox"
 import { useState, useEffect } from 'react'
 
-const Blackboard = ({data}) => {
+const Blackboard = ({data, handleClick}) => {
+
+
 
     const frame = {
         width: 150,
         height: 200,
         depth: 10,
         elevation: 100,
+        backgroundColorLeft: "#4D5D53",
         boxShadow: "rgba(0, 0, 0, 0.2) 20px 25px 60px -40px inset",
+        border: 'solid burlywood 8px',
     }
     const frame1 = {
         width: 150,
         height: 8,
         depth: 40,
-        elevation: 100
+        elevation: 92
     }
     const leftLegTop = {
         width: 16,
@@ -61,14 +65,14 @@ const Blackboard = ({data}) => {
 
 
     return (
-        <div id="test" className="BlackboardContainer" onClick={(e) =>{console.log(e)}}>
-            <div className={`BlackboardOrigin ${data.customClass}`} style={{...data.styles, position: "relative", width: 0, height: 0}}>llllllllllllllllll
-                <PlaceholderBox data={frame} custom={true} clickable={true}/>   
-                <PlaceholderBox data={frame1} custom={true} clickable={true}/>   
-                <PlaceholderBox data={leftLegTop} custom={true} clickable={true}/>   
-                <PlaceholderBox data={rightLegTop} custom={true} clickable={true}/>   
-                <PlaceholderBox data={leftLegBottom} custom={true} clickable={true}/>   
-                <PlaceholderBox data={rightLegBottom} custom={true} clickable={true}/>   
+        <div id="test" className="BlackboardContainer blackboard" onClick={(e) => handleClick(e)}>
+            <div className={`BlackboardOrigin blackboard ${data.customClass}`} style={{...data.styles, position: "relative", width: 0, height: 0}}>llllllllllllllllll
+                <PlaceholderBox data={frame} custom={true} clickable={true} customClasses={"blackboard"}/>   
+                <PlaceholderBox data={frame1} custom={true} clickable={true} customClasses={"blackboard"}/>   
+                <PlaceholderBox data={leftLegTop} custom={true} clickable={true} customClasses={"blackboard"}/>   
+                <PlaceholderBox data={rightLegTop} custom={true} clickable={true} customClasses={"blackboard"}/>   
+                <PlaceholderBox data={leftLegBottom} custom={true} clickable={true} customClasses={"blackboard"}/>   
+                <PlaceholderBox data={rightLegBottom} custom={true} clickable={true} customClasses={"blackboard"}/>   
             </div>
         </div>
      )

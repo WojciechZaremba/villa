@@ -1,8 +1,7 @@
 import "./placeholderBox.css"
 
 
-const PlaceholderBox = ({data, custom = false, clickable = false}) => {
-    let customClasses = ""
+const PlaceholderBox = ({data, custom = false, clickable = false, customClasses = ""}) => {
     clickable && (customClasses = customClasses.concat(" ", "clickable"))
 
     if (!custom) {
@@ -32,8 +31,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
         const moreShadows = data.moreShadows || false
 
         return (
-            <div className="placeholderContainer">
-                <div className="placeholderOrigin" 
+            <div className={`placeholderContainer ${customClasses}`}>
+                <div className={`placeholderOrigin ${customClasses}`}
                     style={{transform: `translate3d(0,0,${customElevation}px)`,
                             left: custompostitionLeft,
                             top: customPostitionRight}}>
@@ -41,7 +40,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
                         style={{
                             backgroundImage: `url(${customImage})`,
                             backgroundColor: customColorLeft,
-                            border: `solid #111 ${border}px`,
+                            border: border,
+                            // border: `solid #111 ${border}px`,
                             boxSizing: "border-box",
                             boxShadow: boxShadow,
                         // left: custompostitionLeft,
@@ -92,7 +92,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false}) => {
                         width: customWidth,
                         height: customDepth,
                         transform: `translate3d(0, 0, 0)`,
-                        boxShadow: `0px 0px 25px 2px rgb(0 0 0)`
+                        boxShadow: `0px 0px 25px 0px rgb(0 0 0)`
                 }}></div>}
                     
                 </div>
