@@ -38,7 +38,6 @@ function App() {
       } else {
         setPopElement(e.target)
       }
-      console.log("EVENT ELEMENT CLICKED POPUP",e.target.classList.contains("blackboard"))
     }
 
   }
