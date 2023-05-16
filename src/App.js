@@ -28,9 +28,19 @@ function App() {
   const [popElement, setPopElement] = useState(null);
   
   function handleClick(e) {
+    const exceptions = ["blackboardCanvas","arrow"]
     // setFading(!fadingOut)
-    setPopup(!popup)
-    setPopElement(e.target)
+
+    if (!exceptions.some(ex => e.target.classList.contains(ex))) {
+      setPopup(!popup) // don't close popup window when clicked on exception
+      if (e.target.classList.contains("blackboard")) {
+        setPopElement("blackboard")
+      } else {
+        setPopElement(e.target)
+      }
+      console.log("EVENT ELEMENT CLICKED POPUP",e.target.classList.contains("blackboard"))
+    }
+
   }
 
   // const currentOutlet = useOutlet()

@@ -63,7 +63,7 @@ const GenericRoom = ({data, items, handleClick}) => {
                     {items?.bathtub && <Bathtub data={items?.bathtub}></Bathtub>}
                     {items?.placeholderBox && <PlaceholderBox data={items?.placeholderBox}></PlaceholderBox>}
                     {items?.tvs && <Television data={tvData}/>}
-                    {items?.blackboards && <BlackboardProto data={blackboardData}/>}
+                    {items?.blackboards && <BlackboardProto data={blackboardData} handleClick={handleClick}/>}
                     <div className="leftClip clipping" 
                         style={{
                         width: data?.roomWidth + 25,

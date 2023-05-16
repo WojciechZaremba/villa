@@ -24,7 +24,7 @@ const TV = ({data}) => {
         postitionLeft: 0,
         positionRight: 0,
         elevation: 8,
-        border: 6,
+        border: `solid #111 6px`,
         boxShadow: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
         cursor: "pointer",
         moreShadows: {

@@ -1,7 +1,19 @@
 import './popup.css'
 import Poster from '../items/poster';
+import BlackboardCanvas from '../items/blackBoardCanvas'
 
-const Popup = (props) => {
+// const Popup = (props, blackboard = false) => {
+const Popup = ({popElement, handleClick, trigger}) => {
+    if (popElement === "blackboard") {
+        return (trigger &&
+            <div className="popup" onClick={(e)=>handleClick(e)}>
+                <div className="popup-inner" style={{display: "flex", flexDirection: "column"}}>
+                    <BlackboardCanvas />
+                </div>
+            </div>
+        )
+    }
+
     let imgUrl
     let propWidth
     let propHeight
@@ -9,20 +21,21 @@ const Popup = (props) => {
     let roomImages = document.getElementsByClassName("wall-poster")
     let index = 0
     let imagesArray = [...roomImages]
-    index = imagesArray.indexOf(props.popElement)
+    index = imagesArray.indexOf(popElement)
+
     
     function imageSwapper(e) { // image swapper swaps images
         const imageToSwap = document.getElementsByClassName("popup-poster")[0]
         let nextImage
         let nextWidth
         let nextHeight
-        if (e == "right") {
+        if (e === "right") {
             index++
             if (index >= roomImages.length) index = 0
             nextImage = window.getComputedStyle(roomImages[index]).backgroundImage
             nextWidth = window.getComputedStyle(roomImages[index]).width
             nextHeight = window.getComputedStyle(roomImages[index]).height
-        } else if (e == "left") {
+        } else if (e === "left") {
             index--
             if (index < 0) index = roomImages.length - 1
             nextImage = window.getComputedStyle(roomImages[index]).backgroundImage
@@ -42,21 +55,22 @@ const Popup = (props) => {
         console.log(document.getElementsByClassName("popup-poster")[0])
     }
 
-    if (props.popElement) {
-        imgUrl = window.getComputedStyle(props.popElement).backgroundImage
-        propWidth = window.getComputedStyle(props.popElement).width
+    if (popElement) {
+        imgUrl = window.getComputedStyle(popElement).backgroundImage
+        propWidth = window.getComputedStyle(popElement).width
         propWidth = parseInt(propWidth.substring(0, propWidth.length - 2), 10) //string px to a number
-        propHeight = window.getComputedStyle(props.popElement).height
+        propHeight = window.getComputedStyle(popElement).height
         propHeight = parseInt(propHeight.substring(0, propHeight.length - 2), 10) //string px to a number
     }
+
     
-    return (props.trigger &&
-        <div className="popup">
-            <div className="popup-inner">
+    return (trigger &&
+        <div className="popup" onClick={(e)=>handleClick(e)} >
+            <div className="popup-inner" onClick={(e)=>handleClick(e)}>
                 <div className="arrow arleft" onClick={(e) => imageSwapper("left")}></div>
                 <Poster popup={true} 
                         data={{width: propWidth, height: propHeight}} 
-                        handleClick={props.handleClick} 
+                        handleClick={handleClick} 
                         image={imgUrl}/>
                 <div className="arrow arright" onClick={(e) => imageSwapper("right")}></div>
             </div>
