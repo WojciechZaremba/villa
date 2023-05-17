@@ -113,7 +113,7 @@ const backroomsGen = function(handleClick) {
             left: Math.random() * (currDimensions.width - 100)}}
       }
       if (Math.random() > 0) {
-        console.log(`tvInRoom#${i}`)
+        // console.log(`tvInRoom#${i}`)
         currRoom.data.items.tvs = [{
           proto: TV,
           customClass: `tvInRoom#${i}`,

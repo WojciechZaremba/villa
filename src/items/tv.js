@@ -55,8 +55,8 @@ const TV = ({data}) => {
     }
 
    function handleClick(e) {
-    console.log(e.target)
-    console.log(data.customClass)
+    // console.log(e.target)
+    // console.log(data.customClass)
         setCount((count => {
             const newCount = count + 1
             // const newCount = localStorage.getItem(`${data.customClass}`) + 1
@@ -73,7 +73,7 @@ const TV = ({data}) => {
         })
    }
 
-   console.log(data.customClass)
+//    console.log(data.customClass)
 
     return (
         <div id="test" className="TVContainer" onClick={(e) =>{handleClick(e)}}>

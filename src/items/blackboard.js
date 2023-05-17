@@ -3,6 +3,27 @@ import { useState, useEffect } from 'react'
 
 const Blackboard = ({data, handleClick}) => {
 
+    const [imageData, setImageData] = useState('')
+
+    
+    useEffect(() => {
+
+        setImageData(JSON.parse(localStorage.getItem('savedImage')))
+        console.log("black board use effect starts here")
+        const handleStorageChange = (e) => {
+            console.log("STORAGW CHANGW")
+            console.log(e)
+                const changedImage = localStorage.getItem("savedImage")
+                setImageData(JSON.parse(changedImage))
+        }
+
+        window.addEventListener('imageChanged', handleStorageChange)
+
+        return () => {
+            window.removeEventListener('imageChanged', handleStorageChange)
+        }
+    },[])
+
 
 
     const frame = {
@@ -13,7 +34,8 @@ const Blackboard = ({data, handleClick}) => {
         backgroundColorLeft: "#4D5D53",
         boxShadow: "rgba(0, 0, 0, 0.2) 20px 25px 60px -40px inset",
         border: 'solid burlywood 8px',
-        image: JSON.parse(localStorage.getItem('savedImage'))
+        // image: JSON.parse(localStorage.getItem('savedImage'))
+        image: imageData
     }
     const frame1 = {
         width: 150,

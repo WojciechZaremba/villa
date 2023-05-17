@@ -12,6 +12,7 @@ import TV from "../items/tv";
 import Blackboard from "../items/blackboard";
 
 const Bedroom = ({handleClick}) => {
+    console.log("Bedroom here")
     const [data, setData] = useState({
         roomName: "bedroom",
         roomWidth: 550,
