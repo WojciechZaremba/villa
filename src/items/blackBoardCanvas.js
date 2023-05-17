@@ -5,6 +5,10 @@ const BlackBoardCanvas = () => {
         const canvasRef = useRef(null)
         
         useEffect(() => {
+            const savedImageData = localStorage.getItem('savedImage')
+            const parsedData = JSON.parse(savedImageData)
+            const image = new Image()
+            image.src = parsedData
 
             let coord = { x: 0, y: 0 }
 
@@ -12,8 +16,11 @@ const BlackBoardCanvas = () => {
 
             const canvas = canvasRef.current
             const context = canvas.getContext('2d')
-            context.fillStyle = '#fff'
-            context.fillRect(50, 50, 100, 250)
+
+            context.drawImage(image, 0, 0)
+
+            // context.fillStyle = '#fff'
+            // context.fillRect(50, 50, 100, 250)
             
             const draw = (e) => {
                 context.beginPath()
@@ -41,10 +48,16 @@ const BlackBoardCanvas = () => {
             board.addEventListener('mousedown', start)
             document.addEventListener('mouseup', stop)
 
+            console.log("body of USE EFFECT HERE ******************************************")
 
             return () => {
+                console.log("RETURN OF USE EFFECT HERE ******************************************")
                 board.removeEventListener('mousedown', start)
                 document.removeEventListener('mouseup', stop)
+                const image = new Image()
+                image.src = canvas.toDataURL()
+                const imageData = JSON.stringify(image.src)
+                localStorage.setItem('savedImage', imageData)
               }
 
         }, [])
