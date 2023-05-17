@@ -50,7 +50,9 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                             top: customDepth,
                             transform: `rotateX(-90deg) rotateY(0deg) rotateZ(0deg) 
                                     translate3d(0px, ${-customHeight}px,0px)`
-                }}></div>
+                }}>
+                    {data.image && <img className={`image ${customClasses}`} src={data.image} height={customHeight} width={customWidth} />}
+                </div>
                     <div className={`placeholderRight ${customClasses}`}
                         style={{
                         backgroundImage: `url(${""})`,
