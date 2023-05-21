@@ -5,6 +5,8 @@ const BlackBoardCanvas = () => {
         const canvasRef = useRef(null)
         
         useEffect(() => {
+            const drawingDoneEvent = new Event("imageChanged")
+
             const savedImageData = localStorage.getItem('savedImage')
             const parsedData = JSON.parse(savedImageData)
             const image = new Image()
@@ -17,7 +19,10 @@ const BlackBoardCanvas = () => {
             const canvas = canvasRef.current
             const context = canvas.getContext('2d')
 
-            context.drawImage(image, 0, 0)
+            image.onload = function () {
+                context.drawImage(image, 0, 0)
+             }
+            
 
             // context.fillStyle = '#fff'
             // context.fillRect(50, 50, 100, 250)
@@ -58,6 +63,7 @@ const BlackBoardCanvas = () => {
                 image.src = canvas.toDataURL()
                 const imageData = JSON.stringify(image.src)
                 localStorage.setItem('savedImage', imageData)
+                window.dispatchEvent(drawingDoneEvent)
               }
 
         }, [])
