@@ -27,13 +27,14 @@ const Blackboard = ({data, handleClick}) => {
 
 
     const frame = {
+        frameThickness: 8,
         width: 150,
         height: 200,
         depth: 10,
         elevation: 100,
         backgroundColorLeft: "#4D5D53",
         boxShadow: "rgba(0, 0, 0, 0.2) 20px 25px 60px -40px inset",
-        border: 'solid burlywood 8px',
+        border: `solid burlywood 8px`,
         // image: JSON.parse(localStorage.getItem('savedImage'))
         image: imageData
     }
