@@ -4,7 +4,7 @@ import Bathtub from "../items/bathtub"
 // import Bed from "../items/bed"
 import React from "react"
 
-const GenericRoom = ({data, items, handleClick}) => {
+const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     const Television = items?.tvs?.[0]?.proto
     const tvData = items?.tvs?.[0]
     const blackboardData = items?.blackboards?.[0]
@@ -53,7 +53,8 @@ const GenericRoom = ({data, items, handleClick}) => {
 
     return (
         <div className='genericRoom'>genericRoom: {data?.roomName}
-            <div className='genericRoomOrigin' style={{left: roomOffset, top: roomOffsetVert}}>
+            <div className={'genericRoomOrigin' + " " + customOriginClass} 
+                    style={{left: roomOffset, top: roomOffsetVert}}>
                 <div className="floor" 
                         style={{
                         // backgroundColor: data?.floorColor,

@@ -8,6 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateZ(1000px);
+    z-index: -1;
 }
 
 .popup-inner {

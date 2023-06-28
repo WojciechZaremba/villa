@@ -4,7 +4,9 @@ const Door = ({data}) => {
     const nav = useNavigate()
     return (
         <div className="door"
-                onClick={() => nav(`${data?.route}`)}
+                onClick={() => {
+                    nav(`${data?.route}`)
+                }}
                 style={{...data.styles}}
         >door</div>
     );
