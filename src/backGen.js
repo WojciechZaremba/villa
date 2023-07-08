@@ -19,8 +19,13 @@ const backroomsGen = function(handleClick) {
       const items = genRoomsArr[i].data.items
       const route = genRoomsArr[i].path
 
-      ready.push(<Route id={i} path={route} 
-        element={<GenericRoom key={i} data={data} items={items} handleClick={handleClick} />} />)
+      ready.push(<Route id={i} 
+                        path={route} 
+                        element={<GenericRoom key={i} 
+                        data={data} 
+                        items={items} 
+                        handleClick={handleClick} 
+                        customOriginClass="backroomOrigin" />} />)
     }
     return (<>{ready}</>)
   }

@@ -2,10 +2,8 @@ import PlaceholderBox from "./placeholderBox"
 import { useState, useEffect } from 'react'
 
 const Blackboard = ({data, handleClick}) => {
-
     const [imageData, setImageData] = useState('')
 
-    
     useEffect(() => {
 
         setImageData(JSON.parse(localStorage.getItem('savedImage')))
@@ -80,16 +78,16 @@ const Blackboard = ({data, handleClick}) => {
         elevation: 0,
         postitionLeft: 134,
         positionRight: -15,
-        boxShadow: "inset rgb(0, 0, 0, .3) 0px 40px 30px -20px",
+        // boxShadow: "inset rgb(0, 0, 0, .3) 0px 40px 30px -20px",
         moreShadows: {
-            left: "rgba(0, 0, 0, 0.3) 90px 0px 30px -50px inset",
+            left: "inset rgb(0, 0, 0, .3) 0px 40px 30px -20px",
             ambientShadowBottom: true,
         }
     }
 
 
     return (
-        <div id="test" className="BlackboardContainer blackboard" onClick={(e) => handleClick(e)}>
+        <div id="test" className="BlackboardContainer blackboard" onClick={(e) => handleClick(e)} style={{transform: "scale3d(0.9, 0.9, 0.9)"}}>
             <div className={`BlackboardOrigin blackboard ${data.customClass}`} style={{...data.styles, position: "relative", width: 0, height: 0}}>llllllllllllllllll
                 <PlaceholderBox data={frame} custom={true} clickable={true} customClasses={"blackboard"}/>   
                 <PlaceholderBox data={frame1} custom={true} clickable={true} customClasses={"blackboard"}/>   

@@ -4,3 +4,18 @@ body {
 .clickable {
   cursor: pointer;
 }
+* {
+  padding: 0px;
+  margin: 0px;
+  /* transition: opacity 400ms ease-in-out; */
+  transform-style: preserve-3d;
+  
+}
+.container {
+  transition: transform 15s;
+  margin: auto;
+  transform-origin: center center;
+  background: rgba(255, 0, 0, 0.082);
+  width: 600px;
+  height: 500px;
+}

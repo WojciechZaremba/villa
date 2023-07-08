@@ -7,7 +7,6 @@
 }
 .genericRoom * {
     font-size:xx-large;
-    transform-style: preserve-3d;
     top: 0px;
     font-size: 0;
   }
@@ -23,7 +22,6 @@
     width: 0px;
     height: 0px;
     /* perspective: 1500px; */
-    transform-style: preserve-3d;
     transform: rotateX(60deg) rotateY(-0deg) rotateZ(45deg) translate3d(-00px, 00px, 0px);
     transform-origin: center;
   }
@@ -175,20 +173,25 @@ transition: opacity 300ms linear;
   }
    */
 
-.fade-appear,
-.fade-enter {
-opacity: .0;
-z-index: 1;
-}
-.fade-appear-active,
-.fade-enter.fade-enter-active {
-opacity: 1;
-transition: opacity 400ms ease-in-out;
-}
-.fade-exit {
-opacity: 1;
-}
-.fade-exit.fade-exit-active {
-opacity: .0;
-transition: opacity 400ms ease-in-out;
-}
+
+
+
+   .fade-appear,
+   .fade-enter {
+   opacity: .0;
+   /* opacity: 1; */
+   z-index: 1;
+   }
+   .fade-appear-active,
+   .fade-enter.fade-enter-active {
+   opacity: 1;
+   transition: opacity 400ms ease-in-out;
+   }
+   .fade-exit {
+   opacity: 1;
+   }
+   .fade-exit.fade-exit-active {
+   opacity: .0;
+   /* opacity: 1; */
+   transition: opacity 400ms ease-in-out;
+   } 

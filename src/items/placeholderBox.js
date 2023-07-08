@@ -43,7 +43,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                             border: border,
                             // border: `solid #111 ${border}px`,
                             boxSizing: "border-box",
-                            boxShadow: boxShadow,
+                            boxShadow: moreShadows.left,
+                            // boxShadow: boxShadow,
                         // left: custompostitionLeft,
                             width: customWidth,
                             height: customHeight,
@@ -73,7 +74,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
-                        boxShadow: moreShadows.left || null,
+                        boxShadow: moreShadows.hidden || null,
                         width: customHeight,
                         height: customDepth,
                         left: customWidth,
@@ -85,6 +86,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                         backgroundImage: `url(${""})`,
                         backgroundColor: customColorTop,
                         // left: data?.positionLeft,
+                        boxShadow: moreShadows.top || null,
                         width: customWidth,
                         height: customDepth,
                         transform: `translate3d(0, 0, ${customHeight}px)`
@@ -97,7 +99,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                         width: customWidth,
                         height: customDepth,
                         transform: `translate3d(0, 0, 0)`,
-                        boxShadow: `0px 0px 25px 0px rgb(0 0 0)`
+                        boxShadow: `0px 0px 25px 0px rgba(0, 0, 0, .7)`
                 }}></div>}
                     
                 </div>

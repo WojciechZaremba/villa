@@ -10,6 +10,7 @@ import PlaceholderBox from "../items/placeholderBox";
 
 import TV from "../items/tv";
 import Blackboard from "../items/blackboard";
+import ComfyChair from "../items/comfyChair"
 
 const Bedroom = ({handleClick}) => {
     console.log("Bedroom here")
@@ -57,7 +58,7 @@ const Bedroom = ({handleClick}) => {
                 background: "Pink",
                 }}],
         placeholderBox: {
-            styles: {left: 3, top: 9},
+            styles: {left: 300, top: 400},
         },
         bed: { proto: Bed,
                 styles: {top: 88,
@@ -68,7 +69,7 @@ const Bedroom = ({handleClick}) => {
             styles: { top: 415,
                     left: 100,
                     elevation: 0,
-                    transform: `rotateX(0deg) rotateY(0deg) rotateZ(280deg) 
+                    transform: `rotateX(0deg) rotateY(0deg) rotateZ(270deg) 
                         translate3d(0px,0px, 0px)`,
                     transformOrigin: "centre" 
                     }
@@ -76,14 +77,36 @@ const Bedroom = ({handleClick}) => {
         blackboards: [{
             proto: Blackboard,
             styles: {
-                top: 415,
-                left: 400,
+                top: 163,
+                left: 30,
                 elevation: 0,
-                transform: `rotateX(0deg) rotateY(0deg) rotateZ(-20deg) 
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(305deg) 
                     translate3d(0px,0px, 0px)`,
                 transformOrigin: "centre"
             }
-        }]
+        }],
+        comfyChairs: [
+            {
+            proto: ComfyChair,
+            styles: {
+                top: 100,
+                left: 400,
+                elevation: 0,
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(287deg) translate3d(-64px, 0px, 0px)`,
+                transformOrigin: "centre"
+            }
+        },
+            {
+            proto: ComfyChair,
+            styles: {
+                top: 375,
+                left: 470,
+                elevation: 0,
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(12deg) translate3d(-64px, 0px, 0px)`,
+                transformOrigin: "centre"
+            }
+        }
+    ]
     }
     return (<GenericRoom data={data} items={items} handleClick={handleClick} />)
 }
