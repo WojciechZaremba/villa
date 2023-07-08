@@ -25,10 +25,11 @@ const TV = ({data}) => {
         positionRight: 0,
         elevation: 8,
         border: `solid #111 6px`,
-        boxShadow: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
+        // boxShadow: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
         cursor: "pointer",
         moreShadows: {
             ambientShadowBottom: true,
+            left: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none"
         }
     });
 
@@ -65,11 +66,19 @@ const TV = ({data}) => {
         }))
         count % 2 === 1 && setScreenData({...screenData, 
             backgroundImage: "none",
-            boxShadow: "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)"
+            // boxShadow: "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)"
+            moreShadows: {
+                ambientShadowBottom: true,
+                left: "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)"
+            }
         })
         count % 2 === 0 && setScreenData({...screenData, 
             backgroundImage: noSignal,
-            boxShadow: "none"
+            // boxShadow: "none"
+            moreShadows: {
+                ambientShadowBottom: true,
+                left: "none"
+            }
         })
    }
 

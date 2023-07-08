@@ -21,15 +21,15 @@ const Bathroom = ({handleClick}) => {
             route: "/hall",
             wall: "right",
             styles: {
-                left: 20,
+                left: 120,
                 background: "LightSeaGreen",
                 },
             }],
         bathtub: {
             proto: Bathtub,
             styles: {
-                top: 50,
-                left: 50
+                top: 20,
+                left: 0
             }
         }
     }

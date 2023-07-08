@@ -5,9 +5,14 @@ import Bathtub from "../items/bathtub"
 import React from "react"
 
 const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
+
+    // TODO: automate that code \/  \/  \/
     const Television = items?.tvs?.[0]?.proto
     const tvData = items?.tvs?.[0]
     const blackboardData = items?.blackboards?.[0]
+    const ComfyChairData = items?.comfyChairs?.[0]
+
+    const comfyChairsAll = items?.comfychairs
 
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
@@ -15,6 +20,21 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     const PosterProto = items?.posters?.[0]?.proto
     const DoorProto = items?.doors?.[0]?.proto
     const BlackboardProto = items?.blackboards?.[0]?.proto
+    const ComfyProto = items?.comfyChairs?.[0]?.proto
+    // TODO: automate that code /\  /\  /\
+    
+
+    // TODO: abstract processors \/  \/  \/
+    function comfyChairsProcessor() {
+        let chairsNum = items?.comfyChairs?.length
+        let chairs = items?.comfyChairs
+
+        let chairsComponents = []
+        for (let i = 0; i < chairsNum; i++) {
+            chairsComponents.push(<ComfyProto data={chairs[i]} key={i}/>)
+        }
+        return <>{chairsComponents}</>
+    }
 
     function postersProcessor(plane) {
         let postersNum = items?.posters?.length
@@ -44,12 +64,12 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 </div>)
     }
 
-    function universalItemProcessor(plane) {
-        const categories = Object.keys(items);
-        for (let i = 0; i < categories.length; i++) {
-            // console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
-        }
-    }
+    // function universalItemProcessor(plane) {
+    //     const categories = Object.keys(items);
+    //     for (let i = 0; i < categories.length; i++) {
+    //         // console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
+    //     }
+    // }
 
     return (
         <div className='genericRoom'>genericRoom: {data?.roomName}
@@ -61,10 +81,16 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         backgroundColor: data.floorColor,
                         width: data?.roomWidth,
                         height: data?.roomLength,}}>floor
+
+                    {/* TODO: automate that code \/ \/ \/ */}
                     {items?.bathtub && <Bathtub data={items?.bathtub}></Bathtub>}
                     {items?.placeholderBox && <PlaceholderBox data={items?.placeholderBox}></PlaceholderBox>}
                     {items?.tvs && <Television data={tvData}/>}
                     {items?.blackboards && <BlackboardProto data={blackboardData} handleClick={handleClick}/>}
+                    {/* {items?.comfyChairs && <ComfyProto data={ComfyChairData}/>} */}
+                    {comfyChairsProcessor()}
+                    {/* TODO: automate that code /\ /\ /\ */}
+
                     <div className="leftClip clipping" 
                         style={{
                         width: data?.roomWidth + 25,

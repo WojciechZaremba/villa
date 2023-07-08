@@ -81,7 +81,7 @@ function App() {
 
 
   function handleClick(e) {
-    const exceptions = ["blackboardCanvas","arrow"]
+    const exceptions = ["blackboardCanvas","arrow","buttons"]
     // setFading(!fadingOut)
 
     if (!exceptions.some(ex => e.target.classList.contains(ex))) {
