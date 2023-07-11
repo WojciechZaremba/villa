@@ -81,7 +81,7 @@ function App() {
 
 
   function handleClick(e) {
-    const exceptions = ["blackboardCanvas","arrow","buttons"]
+    const exceptions = ["blackboardCanvas","arrow"]
     // setFading(!fadingOut)
 
     if (!exceptions.some(ex => e.target.classList.contains(ex))) {
@@ -105,16 +105,16 @@ function App() {
   //   }); // maybe it works
 
   const [backrooms, setBackrooms] = useState(backroomsGen(handleClick));
-  const [links, setLinks] = useState(() => {
-    let links = []
-    for (let room of backrooms.props.children) links.push(room.props.path)
-    return links
+  const [backLinks, setLinks] = useState(() => {
+    let backLinks = []
+    for (let room of backrooms.props.children) backLinks.push(room.props.path)
+    return backLinks
   })
 
   return (
     <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
         <header className="App-header">
-          <Navbar links={links}/>
+          <Navbar backLinks={backLinks}/>
         </header>
         <div className="container">
           <SwitchTransition>
