@@ -2,8 +2,15 @@
     display: flex;
     width: 100%;
     background-color:#2f4f4f;
+    transform: translateZ(1000px);
+}
+.externalLinks {
+    max-width: 300px;
+    justify-content: flex-end;
+    margin-right: 15px;
 }
 .navbar {
+    transform-style: flat;
     font-size: 20px;
 }
 #logo {
@@ -11,31 +18,44 @@
     padding: 12px 23px 10px 25px;
     box-shadow: none;
     background-color:#2f4f4f;
-    
 }
-.link {
-    text-decoration:dashed;
+.link{
+    text-decoration: none;
     padding: 20px 12px 0 12px;
     color: rgb(255, 255, 255);
     text-align: center;
     background-color:#2f4f4f;
-
-    /* box-shadow: 0px 42px 56px -30px #ffffff17 inset; */
 }
 .currentHref {
     box-shadow: 0px 42px 56px -30px #00000067 inset;
     background-color:#284242;
 }
-
 .link:hover { 
     box-shadow: 0px 42px 56px -30px #000000a9 inset;
 }
 .link:active {
     background-color:#284242;
-    /* box-shadow: -1px 30px 97px -32px #000000a9 inset, 0px 0px 21px 10px #00000054 inset; */
-    /* transition: box-shadow 0.3s ease-in-out; */
+}
+.dropButton {
+    display: block;
+    margin: 0;
+}
+.dropdown {
+    display: flex;
+}
+.dropdown:hover .dropdownContent {
+    position: absolute;
+    top: 62px;
+    display: flex;
+    transform: translateZ(1100px);
+}
+.dropdownContent{
+    display: none;
+    position: absolute;
 }
 .backrooms > * {
     font-size: 15px;
-    display: none;
+}
+.experimental {
+    padding: 10px;
 }

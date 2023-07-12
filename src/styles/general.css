@@ -9,7 +9,6 @@ body {
   margin: 0px;
   /* transition: opacity 400ms ease-in-out; */
   transform-style: preserve-3d;
-  
 }
 .container {
   transition: transform 15s;
