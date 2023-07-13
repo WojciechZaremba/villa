@@ -44,7 +44,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                     <div className={`placeholderLeft ${customClasses}`}
                         style={{
                             // backgroundImage: `url(${customImage})`,
-                            backgroundImage: !data.texture ? `url(${customImage})` : "",
+                            backgroundImage: data.customImageLeft ? `url(${customImage})` : `url(${""})`,
                             backgroundColor: customColorLeft,
                             border: border,
                             // border: `solid #111 ${border}px`,
@@ -66,7 +66,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                     <div className={`placeholderRight ${customClasses}`}
                         style={{
                         // backgroundImage: `url(${""})`,
-                        backgroundImage: !data.texture ? `url(${customImage})` : "",
+                        backgroundImage: data.customImageRight ? `url(${customImage})` : `url(${""})`,
 
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
@@ -80,7 +80,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                     <div className={`placeholderDefHidden ${customClasses}`}
                         style={{
                         // backgroundImage: `url(${""})`,
-                        backgroundImage: !data.texture ? `url(${customImage})` : "",
+                        backgroundImage: data.customImageDefHidden ? `url(${customImage})` : `url(${""})`,
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
                         boxShadow: moreShadows.hidden || null,
@@ -93,7 +93,7 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                     <div className={`placeholderTop ${customClasses}`}
                         style={{
                         // backgroundImage: `url(${""})`,
-                        backgroundImage: !data.texture ? `url(${customImage})` : "",
+                        backgroundImage: data.customImageTop ? `url(${customImage})` : `url()`,
                         backgroundColor: customColorTop,
                         // left: data?.positionLeft,
                         boxShadow: moreShadows.top || null,

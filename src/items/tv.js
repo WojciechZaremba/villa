@@ -14,7 +14,8 @@ const TV = ({data}) => {
     });
 
     const [screenData, setScreenData] = useState({
-        backgroundImage: count % 2 === 1 ? noSignal : "none",
+        customImageLeft: count % 2 === 1 ? noSignal : "none",
+        // backgroundImage: count % 2 === 1 ? noSignal : "none",
         backgroundColorLeft: "white",
         backgroundColorRight: "#343434",
         backgroundColorTop: "#343434",
