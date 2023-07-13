@@ -109,7 +109,9 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                         width: customWidth,
                         height: customDepth,
                         transform: `translate3d(0, 0, 0)`,
-                        boxShadow: `0px 0px 25px 0px rgba(0, 0, 0, .7)`
+                        boxShadow: `0px 0px 25px 0px rgba(0, 0, 0, .7)`,
+                        boxShadow: `0px 0px 20px 8px rgba(0, 0, 0, .2)`, // best one?
+                        boxShadow: `0px 0px 44px 5px rgba(0, 0, 0, .5)`, // soft
                 }}></div>}
                     
                 </div>

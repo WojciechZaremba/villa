@@ -21,16 +21,24 @@ const tvCabinet = ({data}) => {
         elevation: 0,
         texture: false,
         backgroundColorRight: "burlywood",
+        moreShadows: {
+            left: "inset rgb(0, 0, 0, .3) 0px 33px 30px -20px",
+            ambientShadowBottom: true,
+        }
     }
     const legLeft = {
         width: 85,
-        height: 35,
+        height: 46,
         depth: 12,
-        elevation: 0,
+        elevation: 0,   
         texture: false,
         postitionLeft: 0,
         positionRight: 238,
         backgroundColorRight: "burlywood",
+        moreShadows: {
+            left: "rgba(0, 0, 0, 0.1) -30px 35px 27px -30px inset",
+            ambientShadowBottom: true,
+        }
     }
     const bottom = {
 
