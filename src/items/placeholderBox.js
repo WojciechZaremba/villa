@@ -16,6 +16,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
         )
 
     } else {
+
+        // ???? redundant \/  \/  \/
         const customWidth = data.width
         const customHeight = data.height
         const customDepth = data.depth
@@ -29,6 +31,9 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
         const border = data.border
         const boxShadow = data.boxShadow
         const moreShadows = data.moreShadows || false
+        // ???? redundant /\  /\  /\
+
+        // data.texture ? data.texture : data.backgroundImage ? backgroundImage
 
         return (
             <div className={`placeholderContainer ${customClasses}`}>
@@ -38,7 +43,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                             top: customPostitionRight}}>
                     <div className={`placeholderLeft ${customClasses}`}
                         style={{
-                            backgroundImage: `url(${customImage})`,
+                            // backgroundImage: `url(${customImage})`,
+                            backgroundImage: !data.texture ? `url(${customImage})` : "",
                             backgroundColor: customColorLeft,
                             border: border,
                             // border: `solid #111 ${border}px`,
@@ -59,7 +65,9 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                 </div>
                     <div className={`placeholderRight ${customClasses}`}
                         style={{
-                        backgroundImage: `url(${""})`,
+                        // backgroundImage: `url(${""})`,
+                        backgroundImage: !data.texture ? `url(${customImage})` : "",
+
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
                         boxShadow: moreShadows.right || null,
@@ -71,7 +79,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                 }}></div>
                     <div className={`placeholderDefHidden ${customClasses}`}
                         style={{
-                        backgroundImage: `url(${""})`,
+                        // backgroundImage: `url(${""})`,
+                        backgroundImage: !data.texture ? `url(${customImage})` : "",
                         backgroundColor: customColorRight,
                         // left: data?.positionRight,
                         boxShadow: moreShadows.hidden || null,
@@ -83,7 +92,8 @@ const PlaceholderBox = ({data, custom = false, clickable = false, customClasses 
                 }}></div>
                     <div className={`placeholderTop ${customClasses}`}
                         style={{
-                        backgroundImage: `url(${""})`,
+                        // backgroundImage: `url(${""})`,
+                        backgroundImage: !data.texture ? `url(${customImage})` : "",
                         backgroundColor: customColorTop,
                         // left: data?.positionLeft,
                         boxShadow: moreShadows.top || null,

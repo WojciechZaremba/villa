@@ -11,6 +11,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     const tvData = items?.tvs?.[0]
     const blackboardData = items?.blackboards?.[0]
     const ComfyChairData = items?.comfyChairs?.[0]
+    const tvCabinetData = items?.tvCabinets?.[0]
 
     const comfyChairsAll = items?.comfychairs
 
@@ -21,6 +22,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     const DoorProto = items?.doors?.[0]?.proto
     const BlackboardProto = items?.blackboards?.[0]?.proto
     const ComfyProto = items?.comfyChairs?.[0]?.proto
+    const TvCabinetProto = items?.tvCabinets?.[0]?.proto
     // TODO: automate that code /\  /\  /\
     
 
@@ -89,6 +91,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                     {items?.blackboards && <BlackboardProto data={blackboardData} handleClick={handleClick}/>}
                     {/* {items?.comfyChairs && <ComfyProto data={ComfyChairData}/>} */}
                     {comfyChairsProcessor()}
+                    {items?.tvCabinets && <TvCabinetProto data={tvCabinetData} />}
                     {/* TODO: automate that code /\ /\ /\ */}
 
                     <div className="leftClip clipping" 

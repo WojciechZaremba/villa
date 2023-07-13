@@ -9,8 +9,9 @@ import Poster from "../items/poster";
 import PlaceholderBox from "../items/placeholderBox";
 
 import TV from "../items/tv";
-import Blackboard from "../items/blackboard";
+import Blackboard from "../items/blackboard"
 import ComfyChair from "../items/comfyChair"
+import tvCabinet from "../items/tvCabinet"
 
 const Bedroom = ({handleClick}) => {
     console.log("Bedroom here")
@@ -66,13 +67,23 @@ const Bedroom = ({handleClick}) => {
         },
         tvs: [{
             proto: TV,
-            styles: { top: 415,
-                    left: 100,
-                    elevation: 0,
+            styles: { top: 490,
+                    left: 30,
+                    elevation: 50,
                     transform: `rotateX(0deg) rotateY(0deg) rotateZ(270deg) 
-                        translate3d(0px,0px, 0px)`,
+                        translate3d(0px,0px, 48px)`,
                     transformOrigin: "centre" 
                     }
+        }],
+        tvCabinets: [{
+            proto: tvCabinet,
+            styles: {
+                top: 255,
+                left: 0,
+                transformOrigin: "centre",
+                transform: `rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                        translate3d(0px,0px,0px)`,
+            }
         }],
         blackboards: [{
             proto: Blackboard,
