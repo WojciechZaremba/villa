@@ -119,9 +119,10 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     }
 
     function furnitureAbstract(place) {
-        if (Object.keys(items)[Symbol.iterator] !== 'function') {
-            return console.error("You made a mistake - Object.keys(items) is not iterable");
-        }
+        // if (Object.keys(items)[Symbol.iterator] !== 'function') {
+        //     return console.error("You made a mistake - Object.keys(items) is not iterable");
+        // }
+        console.log("iterable? ", typeof Object.keys(items)[Symbol.iterator])
         const furniture = []
         for (let key of Object.keys(items)) {
             //* a 'thing' is an individual item, eg. chair or tv, when 'items' is a container of all furniture
@@ -129,10 +130,11 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
             //* thing < things / item < items 
             // const thingsNum = items[key]?.length
             const things = items[key]
-
-            if (typeof things[Symbol.iterator] !== 'function') {
-                console.log("%citerable","color: red")
-                return
+            if (things === null || things === undefined) {
+                return console.error("You made a mistake - things is null or undefined")
+            }
+            if (typeof Object.keys(things)[Symbol.iterator] !== 'function') {
+                return console.error("You made a mistake - Object.keys(things) is not iterable")
             }
             for (let thing of things) {
                 if (place !== thing.wall) continue
