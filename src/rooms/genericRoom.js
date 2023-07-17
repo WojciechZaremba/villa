@@ -191,6 +191,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         height: data?.roomHeight, 
                         }}>rightWall
                     {furnitureAbstract("right")}
+                    {doors("right")} {/*use only when furnitureAbstract doesn't render doors properly
+                    may cause a double rendering of the doors*/}
                     <div className="rightClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>rightClip</div>
@@ -205,6 +207,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         height: data?.roomHeight, 
                         }}>leftWall
                     {furnitureAbstract("left")}
+                    {doors("left")} {/*use only when furnitureAbstract doesn't render doors properly
+                    may cause a double rendering of the doors*/}
                     <div className="leftClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>leftClip</div>
