@@ -1,64 +1,116 @@
 
-import PlaceholderBox from "../items/placeholderBox"
-import Bathtub from "../items/bathtub"
 // import Bed from "../items/bed"
-import React from "react"
 
 const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
 
-    // TODO: automate that code \/  \/  \/
-    const Television = items?.tvs?.[0]?.proto
-    const tvData = items?.tvs?.[0]
-    const blackboardData = items?.blackboards?.[0]
-    const ComfyChairData = items?.comfyChairs?.[0]
-    const tvCabinetData = items?.tvCabinets?.[0]
-
-    const comfyChairsAll = items?.comfychairs
-
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
-
-    const PosterProto = items?.posters?.[0]?.proto
-    const DoorProto = items?.doors?.[0]?.proto
-    const BlackboardProto = items?.blackboards?.[0]?.proto
-    const ComfyProto = items?.comfyChairs?.[0]?.proto
-    const TvCabinetProto = items?.tvCabinets?.[0]?.proto
-    // TODO: automate that code /\  /\  /\
     
+    // TODO: abstract s \/  \/  \/
+    function placeholderBoxes() {
+        let placeholderBoxesNum = items?.placeholderBoxes?.length
+        let placeholderBoxes = items?.placeholderBoxes
 
-    // TODO: abstract processors \/  \/  \/
-    function comfyChairsProcessor() {
+        let placeholderBoxesComponents = []
+        for (let i = 0; i < placeholderBoxesNum; i++) {
+            let ComponentProto = placeholderBoxes[i].proto
+            placeholderBoxesComponents.push(<ComponentProto data={placeholderBoxes[i]} 
+                                                            key={i} 
+                                                            handleClick={handleClick}/>)
+        }
+        return <>{placeholderBoxesComponents}</>
+    }
+    function tvs() {
+        let tvsNum = items?.tvs?.length
+        let tvs = items?.tvs
+
+        let tvsComponents = []
+        for (let i = 0; i < tvsNum; i++) {
+            let ComponentProto = tvs[i].proto
+            tvsComponents.push(<ComponentProto  data={tvs[i]} 
+                                                key={i} 
+                                                handleClick={handleClick}/>)
+        }
+        return <>{tvsComponents}</>
+    }
+    function blackboards() {
+        let blackboardsNum = items?.blackboards?.length
+        let blackboards = items?.blackboards
+
+        let blackboardsComponents = []
+        for (let i = 0; i < blackboardsNum; i++) {
+            let ComponentProto = blackboards[i].proto
+            blackboardsComponents.push(<ComponentProto  data={blackboards[i]} 
+                                                        key={i} 
+                                                        handleClick={handleClick}/>)
+        }
+        return <>{blackboardsComponents}</>
+    }
+    function bathtubs() {
+        let bathtubsNum = items?.bathtubs?.length
+        let bathtubs = items?.bathtubs
+
+        let bathtubsComponents = []
+        for (let i = 0; i < bathtubsNum; i++) {
+            let ComponentProto = bathtubs[i].proto
+            bathtubsComponents.push(<ComponentProto data={bathtubs[i]} 
+                                                    key={i} 
+                                                    handleClick={null}/>)
+        }
+        return <>{bathtubsComponents}</>
+    }
+    function tvCabinets() {
+        let tvCabinetsNum = items?.tvCabinets?.length
+        let tvCabinets = items?.tvCabinets
+
+        let tvCabinetsComponents = []
+        for (let i = 0; i < tvCabinetsNum; i++) {
+            let ComponentProto = tvCabinets[i].proto
+            tvCabinetsComponents.push(<ComponentProto   data={tvCabinets[i]} 
+                                                        key={i} 
+                                                        handleClick={null}/>)
+        }
+        return <>{tvCabinetsComponents}</>
+    }
+    function comfyChairs() {
         let chairsNum = items?.comfyChairs?.length
         let chairs = items?.comfyChairs
 
         let chairsComponents = []
         for (let i = 0; i < chairsNum; i++) {
-            chairsComponents.push(<ComfyProto data={chairs[i]} key={i}/>)
+            let ComponentProto = chairs[i].proto
+            chairsComponents.push(<ComponentProto   data={chairs[i]} 
+                                                    key={i} 
+                                                    handleClick={null}/>)
         }
         return <>{chairsComponents}</>
     }
-
-    function postersProcessor(plane) {
+    function posters(plane) {
         let postersNum = items?.posters?.length
         let posters = items?.posters
 
         let postersComponents = []
         for (let i = 0; i < postersNum; i++) {
-            if (posters[i].wall == plane) {
-                postersComponents.push(<PosterProto data={posters[i]} key={i} handleClick={handleClick} />)
+            if (posters[i].wall === plane) {
+                let ComponentProto = posters[i].proto
+                postersComponents.push(<ComponentProto  data={posters[i]} 
+                                                        key={i} 
+                                                        handleClick={handleClick} />)
             }
-        }
-        return <div>{postersComponents}</div>
+        } 
+        return <>{postersComponents}</>
     }
 
-    function doorsProcessor(plane) {
+    function doors(plane) {
         let doorsNum = items?.doors?.length
         let doors = items?.doors
 
         let doorsComponenets = []
         for (let i = 0; i < doorsNum; i++) {
-            if (doors[i].wall == plane) {
-                doorsComponenets.push(<DoorProto data={items.doors[i]} key={i}></DoorProto>)
+            if (doors[i].wall === plane) {
+                let ComponentProto = doors[i].proto
+                doorsComponenets.push(<ComponentProto   data={items.doors[i]} 
+                                                        key={i}/>)
             }
         }
         return  (<div className="doors" style={{display: 'flex', justifyContent: "space-around"}}>
@@ -66,7 +118,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 </div>)
     }
 
-    // function universalItemProcessor(plane) {
+    // function universalItem(plane) {
     //     const categories = Object.keys(items);
     //     for (let i = 0; i < categories.length; i++) {
     //         // console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
@@ -79,20 +131,18 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                     style={{left: roomOffset, top: roomOffsetVert}}>
                 <div className="floor" 
                         style={{
-                        // backgroundColor: data?.floorColor,
                         backgroundColor: data.floorColor,
                         width: data?.roomWidth,
                         height: data?.roomLength,}}>floor
 
-                    {/* TODO: automate that code \/ \/ \/ */}
-                    {items?.bathtub && <Bathtub data={items?.bathtub}></Bathtub>}
-                    {items?.placeholderBox && <PlaceholderBox data={items?.placeholderBox}></PlaceholderBox>}
-                    {items?.tvs && <Television data={tvData}/>}
-                    {items?.blackboards && <BlackboardProto data={blackboardData} handleClick={handleClick}/>}
-                    {/* {items?.comfyChairs && <ComfyProto data={ComfyChairData}/>} */}
-                    {comfyChairsProcessor()}
-                    {items?.tvCabinets && <TvCabinetProto data={tvCabinetData} />}
-                    {/* TODO: automate that code /\ /\ /\ */}
+                    {/* TODO: abstract these \/ \/ \/ */}
+                    {placeholderBoxes()}
+                    {bathtubs()}
+                    {tvs()}
+                    {blackboards()}
+                    {comfyChairs()}
+                    {tvCabinets()}
+                    {/* TODO: abstract these /\ /\ /\ */}
 
                     <div className="leftClip clipping" 
                         style={{
@@ -101,7 +151,6 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                     <div className="rightClip clipping" 
                         style={{height: data?.roomLength + 25,
                         }}>rightClip</div>
-                        {/* {items?.poster?.wall == "floor" && <Poster data={items} handleClick={handleClick} image={image}/>} */}
                 </div>
                 <div className="rightWall" 
                         style={{
@@ -109,8 +158,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         width: data?.roomWidth,
                         height: data?.roomHeight, 
                         }}>rightWall
-                    {postersProcessor("right")}
-                    {doorsProcessor("right")}
+                    {posters("right")}
+                    {doors("right")}
                     <div className="rightClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>rightClip</div>
@@ -124,8 +173,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         width: data?.roomLength,
                         height: data?.roomHeight, 
                         }}>leftWall
-                    {postersProcessor("left")}
-                    {doorsProcessor("left")}
+                    {posters("left")}
+                    {doors("left")}
                     <div className="leftClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>leftClip</div>

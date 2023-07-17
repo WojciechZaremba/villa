@@ -6,6 +6,7 @@ import {
    useLocation, // ... >:[
    useOutlet
   } from 'react-router-dom';
+  
 import GenericRoom from './rooms/genericRoom';
 import Navbar from './navbar';
 import Bedroom from './rooms/bedroom';

@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Bed from "../items/bed";
 import Door from"../items/door";
 import Poster from "../items/poster";
-import PlaceholderBox from "../items/placeholderBox";
+import PlaceholderBox from "../items/placeholderBox"
 
 import TV from "../items/tv";
 import Blackboard from "../items/blackboard"
@@ -58,12 +58,12 @@ const Bedroom = ({handleClick}) => {
                 left: 120,
                 background: "Pink",
                 }}],
-        placeholderBox: {
+        placeholderBoxes: [{
+            proto: PlaceholderBox,
             styles: {left: 300, top: 400},
-        },
+        }],
         bed: { proto: Bed,
-                styles: {top: 88,
-                        left: 80 }
+                styles: {top: 88, left: 80 }
         },
         tvs: [{
             proto: TV,

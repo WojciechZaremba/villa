@@ -25,13 +25,13 @@ const Bathroom = ({handleClick}) => {
                 background: "LightSeaGreen",
                 },
             }],
-        bathtub: {
+        bathtubs: [{
             proto: Bathtub,
             styles: {
                 top: 20,
                 left: 0
             }
-        }
+        }],
     }
 
     return <GenericRoom data={data} items={items} handleClick={handleClick} />

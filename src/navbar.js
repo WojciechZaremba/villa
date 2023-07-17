@@ -30,7 +30,7 @@ const Navbar = ({backLinks}) => {
                 <Link className="navbar link" key={998} to="/bathroom" id="bathroomNav">bathroom</Link>
                 <Link className="navbar link" key={9998} to="/storage" id="storageNav">storage</Link>
                 <div className="dropdown">
-                    <a href="/gen0" onClick={"()=>window.location.pathname='/gen0'"} className="dropButton link" key="444">experimental</a>
+                    <a href="/gen0" onClick={()=>window.location.pathname='/gen0'} className="dropButton link" key="444">experimental</a>
                         <div className="backrooms dropdownContent">
                             {backLinksElem}
                         </div>
