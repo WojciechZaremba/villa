@@ -119,26 +119,26 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
     }
 
     function furnitureAbstract(place) {
-        // const allItemsComponents = []
+        if (Object.keys(items)[Symbol.iterator] !== 'function') {
+            return console.error("You made a mistake - Object.keys(items) is not iterable");
+        }
         const furniture = []
         for (let key of Object.keys(items)) {
             //* a 'thing' is an individual item, eg. chair or tv, when 'items' is a container of all furniture
             //* and 'things' is a container of all the 'thing's of the same category
             //* thing < things / item < items 
-            const thingsNum = items[key]?.length
+            // const thingsNum = items[key]?.length
             const things = items[key]
 
-            console.log(key)
-            if (typeof things[Symbol.iterator] === 'function') console.log("%citerable","color: red")
+            if (typeof things[Symbol.iterator] !== 'function') {
+                console.log("%citerable","color: red")
+                return
+            }
             for (let thing of things) {
                 if (place !== thing.wall) continue
                 furniture.push(<thing.proto key={furniture.length} data={thing} handleClick={handleClick}/>)
-                // console.log(furniture.length)
-                // console.log(thing)
             }
-            // console.log("thing components: ",furniture)
         }
-        // console.log(furniture)
 
         return (<>{furniture}</>)
     }
@@ -171,10 +171,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         width: data?.roomWidth,
                         height: data?.roomLength,}}>floor
 
-                    {/* TODO: abstract these \/ \/ \/ */}
                     {/* {furniture()} */}
                     {furnitureAbstract("floor")}
-                    {/* TODO: abstract these /\ /\ /\ */}
 
                     <div className="leftClip clipping" 
                         style={{
@@ -190,8 +188,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         width: data?.roomWidth,
                         height: data?.roomHeight, 
                         }}>rightWall
-                    {posters("right")}
-                    {doors("right")}
+                    {furnitureAbstract("right")}
                     <div className="rightClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>rightClip</div>
@@ -205,8 +202,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         width: data?.roomLength,
                         height: data?.roomHeight, 
                         }}>leftWall
-                    {posters("left")}
-                    {doors("left")}
+                    {furnitureAbstract("left")}
                     <div className="leftClip clipping" 
                             style={{height: data?.roomHeight + 25
                             }}>leftClip</div>
