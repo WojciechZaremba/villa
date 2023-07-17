@@ -118,6 +118,42 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 </div>)
     }
 
+    function furnitureAbstract(place) {
+        // const allItemsComponents = []
+        const furniture = []
+        for (let key of Object.keys(items)) {
+            //* a 'thing' is an individual item, eg. chair or tv, when 'items' is a container of all furniture
+            //* and 'things' is a container of all the 'thing's of the same category
+            //* thing < things / item < items 
+            const thingsNum = items[key]?.length
+            const things = items[key]
+
+            console.log(key)
+            if (typeof things[Symbol.iterator] === 'function') console.log("%citerable","color: red")
+            for (let thing of things) {
+                if (place !== thing.wall) continue
+                furniture.push(<thing.proto key={furniture.length} data={thing} handleClick={handleClick}/>)
+                // console.log(furniture.length)
+                // console.log(thing)
+            }
+            // console.log("thing components: ",furniture)
+        }
+        // console.log(furniture)
+
+        return (<>{furniture}</>)
+    }
+    console.log(furnitureAbstract())
+    function furniture() {
+        return (<>
+            {placeholderBoxes()}
+            {bathtubs()}
+            {tvs()}
+            {blackboards()}
+            {comfyChairs()}
+            {tvCabinets()}
+            </>)
+    }
+
     // function universalItem(plane) {
     //     const categories = Object.keys(items);
     //     for (let i = 0; i < categories.length; i++) {
@@ -136,12 +172,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                         height: data?.roomLength,}}>floor
 
                     {/* TODO: abstract these \/ \/ \/ */}
-                    {placeholderBoxes()}
-                    {bathtubs()}
-                    {tvs()}
-                    {blackboards()}
-                    {comfyChairs()}
-                    {tvCabinets()}
+                    {/* {furniture()} */}
+                    {furnitureAbstract("floor")}
                     {/* TODO: abstract these /\ /\ /\ */}
 
                     <div className="leftClip clipping" 

@@ -3,7 +3,6 @@ import { useState } from "react";
 import Door from "../items/door";
 import PlaceholderBox from "../items/placeholderBox";
 
-
 const Storage = ({handleClick}) => {
     const [data, setData] = useState({
         roomName: "storage",
@@ -24,7 +23,8 @@ const Storage = ({handleClick}) => {
                 background: "Sienna",
                 },
             }],
-        placeholderBox: {
+        placeholderBoxes: [{
+            proto: PlaceholderBox,
             wall: "floor",
             styles: {
                 top: 0,
@@ -32,7 +32,7 @@ const Storage = ({handleClick}) => {
                 width: 100, // dont work yet if not custom (fixed ???)
                 height: 100,
             },
-        },
+        }],
     }
     
 

@@ -25,7 +25,7 @@ const Bedroom = ({handleClick}) => {
         floorColor: "whitesmoke",
     });
 
-    const items = {
+    const items = { // every element of items must be iterable
         posters: [{proto: Poster,
             handler: handleClick,
             wall: "left",
@@ -60,13 +60,15 @@ const Bedroom = ({handleClick}) => {
                 }}],
         placeholderBoxes: [{
             proto: PlaceholderBox,
+            wall: "floor",
             styles: {left: 300, top: 400},
         }],
-        bed: { proto: Bed,
-                styles: {top: 88, left: 80 }
-        },
+        // bed: [{ proto: Bed,
+        //         styles: {top: 88, left: 80 }
+        // }],
         tvs: [{
             proto: TV,
+            wall: "floor",
             styles: { top: 490,
                     left: 30,
                     elevation: 50,
@@ -77,6 +79,7 @@ const Bedroom = ({handleClick}) => {
         }],
         tvCabinets: [{
             proto: tvCabinet,
+            wall: "floor",
             styles: {
                 top: 255,
                 left: 0,
@@ -87,6 +90,7 @@ const Bedroom = ({handleClick}) => {
         }],
         blackboards: [{
             proto: Blackboard,
+            wall: "floor",
             styles: {
                 top: 163,
                 left: 30,
@@ -99,6 +103,7 @@ const Bedroom = ({handleClick}) => {
         comfyChairs: [
             {
             proto: ComfyChair,
+            wall: "floor",
             styles: {
                 top: 100,
                 left: 400,
@@ -109,6 +114,7 @@ const Bedroom = ({handleClick}) => {
         },
             {
             proto: ComfyChair,
+            wall: "floor",
             styles: {
                 top: 375,
                 left: 470,

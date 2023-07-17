@@ -85,6 +85,8 @@ function App() {
     const exceptions = ["blackboardCanvas","arrow"]
     // setFading(!fadingOut)
 
+    console.log(e)
+
     if (!exceptions.some(ex => e.target.classList.contains(ex))) {
       setPopup(!popup) // don't close popup window when clicked on exception
       if (e.target.classList.contains("blackboard")) {

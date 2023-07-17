@@ -27,6 +27,7 @@ const Bathroom = ({handleClick}) => {
             }],
         bathtubs: [{
             proto: Bathtub,
+            wall: "floor",
             styles: {
                 top: 20,
                 left: 0
