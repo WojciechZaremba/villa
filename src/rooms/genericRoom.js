@@ -118,11 +118,8 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 {doorsComponenets}
                 </div>)
     }
-
+    
     function furnitureAbstract(place) {
-        // if (Object.keys(items)[Symbol.iterator] !== 'function') {
-        //     return console.error("You made a mistake - Object.keys(items) is not iterable");
-        // }
         console.log("iterable? ", typeof Object.keys(items)[Symbol.iterator])
         const furniture = []
         for (let key of Object.keys(items)) {
@@ -145,7 +142,6 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
 
         return (<>{furniture}</>)
     }
-    console.log(furnitureAbstract())
     function furniture() {
         return (<>
             {placeholderBoxes()}
@@ -157,65 +153,43 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
             </>)
     }
 
-    // function universalItem(plane) {
-    //     const categories = Object.keys(items);
-    //     for (let i = 0; i < categories.length; i++) {
-    //         // console.log(categories[i], items[categories[i]]) // str works as a way to access obj prop val
-    //     }
-    // }
-
     return (
-        <div className='genericRoom'>genericRoom: {data?.roomName}
-            <div className={'genericRoomOrigin' + " " + customOriginClass} 
-                    style={{left: roomOffset, top: roomOffsetVert}}>
-                <div className="floor" 
-                        style={{
-                        backgroundColor: data.floorColor,
-                        width: data?.roomWidth,
-                        height: data?.roomLength,}}>floor
-
-                    {/* {furniture()} */}
+        <div className='genericRoom'>
+            genericRoom: {data?.roomName}
+            <div className={'genericRoomOrigin' + " " + customOriginClass} style={{ left: roomOffset, top: roomOffsetVert}}>
+                <div className="floor" style={{ backgroundColor: data.floorColor, width: data?.roomWidth, height: data?.roomLength,}}>
+                    floor
                     {furnitureAbstract("floor")}
-
-                    <div className="leftClip clipping" 
-                        style={{
-                        width: data?.roomWidth + 25,
-                        top: data?.roomLength,}}>leftClip</div>
-                    <div className="rightClip clipping" 
-                        style={{height: data?.roomLength + 25,
-                        }}>rightClip</div>
+                    <div className="leftClip clipping" style={{ width: data?.roomWidth + 25, top: data?.roomLength}}>
+                        leftClip
+                    </div>
+                    <div className="rightClip clipping" style={{ height: data?.roomLength + 25}}>
+                        rightClip
+                    </div>
                 </div>
-                <div className="rightWall" 
-                        style={{
-                        backgroundColor: data?.rightWallColor || data?.wallsColor,
-                        width: data?.roomWidth,
-                        height: data?.roomHeight, 
-                        }}>rightWall
+                <div className="rightWall" style={{backgroundColor: data?.rightWallColor || data?.wallsColor, width: data?.roomWidth, height: data?.roomHeight}}>
+                    rightWall
                     {furnitureAbstract("right")}
                     {doors("right")} {/*use only when furnitureAbstract doesn't render doors properly
                     may cause a double rendering of the doors*/}
-                    <div className="rightClip clipping" 
-                            style={{height: data?.roomHeight + 25
-                            }}>rightClip</div>
-                    <div className="topClip clipping" 
-                            style={{width: data?.roomWidth + 25,top: data?.roomHeight
-                            }}>topClip</div>
+                    <div className="rightClip clipping" style={{height: data?.roomHeight + 25 }}>
+                        rightClip
+                    </div>
+                    <div className="topClip clipping"style={{width: data?.roomWidth + 25,top: data?.roomHeight}}>
+                        topClip
+                    </div>
                 </div>
-                <div className="leftWall" 
-                        style={{
-                        backgroundColor: data?.leftWallColor || data?.wallsColor,
-                        width: data?.roomLength,
-                        height: data?.roomHeight, 
-                        }}>leftWall
+                <div className="leftWall" style={{ backgroundColor: data?.leftWallColor || data?.wallsColor, width: data?.roomLength, height: data?.roomHeight}}>
+                    leftWall
                     {furnitureAbstract("left")}
                     {doors("left")} {/*use only when furnitureAbstract doesn't render doors properly
                     may cause a double rendering of the doors*/}
-                    <div className="leftClip clipping" 
-                            style={{height: data?.roomHeight + 25
-                            }}>leftClip</div>
-                    <div className="topClip clipping" 
-                            style={{width: data?.roomLength + 25,top: data?.roomHeight
-                            }}>topClip</div>
+                    <div className="leftClip clipping" style={{ height: data?.roomHeight + 25}}>
+                        leftClip
+                    </div>
+                    <div className="topClip clipping" style={{ width: data?.roomLength + 25, top: data?.roomHeight}}>
+                        topClip
+                    </div>
                 </div>
             </div>
         </div>
