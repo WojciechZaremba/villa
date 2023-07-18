@@ -13,16 +13,15 @@ const Storage = ({handleClick}) => {
         leftWallColor: "brown",
     });
     const items = {
-        doors: [
-            {
+        doors: [{
             proto: Door,
             wall: "left",
             route: "/bedroom",
             styles: {
                 left: 20,
                 background: "Sienna",
-                },
-            }],
+            },
+        }],
         placeholderBoxes: [{
             proto: PlaceholderBox,
             wall: "floor",

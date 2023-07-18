@@ -14,9 +14,10 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
         let placeholderBoxesComponents = []
         for (let i = 0; i < placeholderBoxesNum; i++) {
             let ComponentProto = placeholderBoxes[i].proto
-            placeholderBoxesComponents.push(<ComponentProto data={placeholderBoxes[i]} 
-                                                            key={i} 
-                                                            handleClick={handleClick}/>)
+            placeholderBoxesComponents.push(<ComponentProto 
+                    data={placeholderBoxes[i]} 
+                    key={i} 
+                    handleClick={handleClick}/>)
         }
         return <>{placeholderBoxesComponents}</>
     }

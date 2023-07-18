@@ -28,8 +28,8 @@ const Hall = ({handleClick}) => {
                 width: 116,
                 height: 160,
             },
-        },
-        {
+          },
+          {
             proto: Poster,
             wall: "right",
             handler: handleClick,
@@ -39,7 +39,7 @@ const Hall = ({handleClick}) => {
                 left: "80px",
                 width: "116px",
                 height: 160
-                },
+            },
         }],
         doors: [{
             proto: Door,
@@ -49,8 +49,8 @@ const Hall = ({handleClick}) => {
                 left: 80,
                 background: "Pink",
             },
-        },
-        {
+          },
+          {
             proto: Door,
             route: "/bathroom",
             wall: "left",
