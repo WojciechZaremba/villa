@@ -3,19 +3,14 @@ import noSignal from "../assets/noSignal.gif"
 import { useState, useEffect } from 'react';
 
 const TV = ({data}) => {
-    // const [count, setCount] = useState(() => {
-    //     const storedCount = localStorage.getItem('count');
-    //     return storedCount !== null ? Number(storedCount) : 0;
-    // });
 
-    const [count, setCount] = useState(() => {
-        const storedCount = localStorage.getItem(`${data.customClass}`);
+    const [count, setCount] = useState(() => { // every tv needs its own counter \/
+        const storedCount = localStorage.getItem(`${data.customClass}`); 
         return storedCount !== null ? Number(storedCount) : 0;
     });
 
     const [screenData, setScreenData] = useState({
-        customImageLeft: count % 2 === 1 ? noSignal : "none",
-        // backgroundImage: count % 2 === 1 ? noSignal : "none",
+        customImageLeft: count % 2 === 1 ? noSignal : "none", // TODO: invent better names
         backgroundColorLeft: "white",
         backgroundColorRight: "#343434",
         backgroundColorTop: "#343434",
@@ -26,7 +21,6 @@ const TV = ({data}) => {
         positionRight: 0,
         elevation: 8,
         border: `solid #111 6px`,
-        // boxShadow: count % 2 === 0 ? "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)" : "none",
         cursor: "pointer",
         moreShadows: {
             ambientShadowBottom: true,
@@ -57,17 +51,13 @@ const TV = ({data}) => {
     }
 
    function handleClick(e) {
-    // console.log(e.target)
-    // console.log(data.customClass)
         setCount((count => {
             const newCount = count + 1
-            // const newCount = localStorage.getItem(`${data.customClass}`) + 1
             localStorage.setItem(`${data.customClass}`, newCount)
             return newCount
         }))
         count % 2 === 1 && setScreenData({...screenData, 
             backgroundImage: "none",
-            // boxShadow: "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)"
             moreShadows: {
                 ambientShadowBottom: true,
                 left: "inset 41px 72px 135px 28px rgba(0, 0, 0, 1)"
@@ -75,15 +65,12 @@ const TV = ({data}) => {
         })
         count % 2 === 0 && setScreenData({...screenData, 
             backgroundImage: noSignal,
-            // boxShadow: "none"
             moreShadows: {
                 ambientShadowBottom: true,
                 left: "none"
             }
         })
    }
-
-//    console.log(data.customClass)
 
     return (
         <div id="test" className="TVContainer" onClick={(e) =>{handleClick(e)}}>

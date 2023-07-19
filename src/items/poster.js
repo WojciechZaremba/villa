@@ -7,8 +7,7 @@ const Poster = ({data, handleClick, image, popup = false}) => {
     if (popup) {
         posterWidth = data?.width;
         posterheight = data?.height;
-        return (
-            <div className="poster popup-poster"
+        return (<div className="poster popup-poster"
                 onClick={(e)=>handleClick(e)} 
                 style={{
                     backgroundImage: image,
@@ -17,18 +16,16 @@ const Poster = ({data, handleClick, image, popup = false}) => {
                     position: "relative",
                     top: "0",
                     left: "0",
-                    transform: "rotateX(0deg)"
-                }}>poster</div>
-        )
+                    transform: "rotateX(0deg)"}}>
+                poster
+                </div>)
     }
 
-    return (
-        <div className="poster wall-poster" 
+    return (<div className="poster wall-poster" 
                 onClick={(e)=>handleClick(e)} 
                 style={{...data.styles}}>
             poster
-        </div>
-    )
+            </div>)
 }
 
 export default Poster;

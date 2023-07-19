@@ -1,5 +1,4 @@
 import PlaceholderBox from "./placeholderBox"
-import wood from "../assets/wood.png"
 
 const tvCabinet = ({data}) => {
     console.log("TV")
@@ -39,9 +38,6 @@ const tvCabinet = ({data}) => {
             left: "rgba(0, 0, 0, 0.1) -30px 35px 27px -30px inset",
             ambientShadowBottom: true,
         }
-    }
-    const bottom = {
-
     }
 
     return (

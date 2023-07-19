@@ -1,19 +1,19 @@
 import PlaceholderBox from "./placeholderBox"
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
+// TODO: make water flow
 
+const Bathtub = ({data}) => {
 
-const Bathtub = ({data, items}) => {
-
-    const side0 = {
-            width: 15,
-            height: 70,
-            depth: 150,
-            elevation: 0,
-            postitionLeft: 0,
-            positionRight: 0,
-            backgroundColorLeft: "henydew",
-            backgroundColorRight: "snow",
-            backgroundColorTop: "henydew",
+    const side0 = { 
+        width: 15,
+        height: 70,
+        depth: 150,
+        elevation: 0,
+        postitionLeft: 0,
+        positionRight: 0,
+        backgroundColorLeft: "henydew",
+        backgroundColorRight: "snow",
+        backgroundColorTop: "henydew",
     }
     const side1 = {
         width: 15,

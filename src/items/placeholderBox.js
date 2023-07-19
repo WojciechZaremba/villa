@@ -3,8 +3,7 @@ import "./placeholderBox.css"
 
 const PlaceholderBox = ({data, custom = false, clickable = false, customClasses = ""}) => {
     clickable && (customClasses = customClasses.concat(" ", "clickable")) 
-    /*why not just pass class as a parameter?*/
-
+    /*why not just pass class name as a parameter?*/
     if (!custom) {
         return (
             <div className="placeholderContainer">qwer

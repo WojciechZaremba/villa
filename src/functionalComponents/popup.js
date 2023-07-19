@@ -22,7 +22,6 @@ const Popup = ({popElement, handleClick, trigger}) => {
     let index = 0
     let imagesArray = [...roomImages]
     index = imagesArray.indexOf(popElement)
-
     
     function imageSwapper(e) { // image swapper swaps images
         const imageToSwap = document.getElementsByClassName("popup-poster")[0]
@@ -62,7 +61,6 @@ const Popup = ({popElement, handleClick, trigger}) => {
         propHeight = window.getComputedStyle(popElement).height
         propHeight = parseInt(propHeight.substring(0, propHeight.length - 2), 10) //string px to a number
     }
-
     
     return (trigger &&
         <div className="popup" onClick={(e)=>handleClick(e)} >
@@ -74,8 +72,7 @@ const Popup = ({popElement, handleClick, trigger}) => {
                         image={imgUrl}/>
                 <div className="arrow arright" onClick={(e) => imageSwapper("right")}></div>
             </div>
-        </div>
-    )
+        </div>)
 }
 
 export default Popup;
