@@ -135,7 +135,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 return console.error("You made a mistake - Object.keys(things) is not iterable")
             }
             for (let thing of things) {
-                if (place !== thing.wall) continue
+                if (place !== thing?.wall) continue
                 furniture.push(<thing.proto key={furniture.length} data={thing} handleClick={handleClick}/>)
             }
         }
@@ -170,7 +170,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 <div className="rightWall" style={{backgroundColor: data?.rightWallColor || data?.wallsColor, width: data?.roomWidth, height: data?.roomHeight}}>
                     rightWall
                     {furnitureAbstract("right")}
-                    {doors("right")} {/*use only when furnitureAbstract doesn't render doors properly
+                    {/*doors("right")*/} {/*use only when furnitureAbstract doesn't render doors properly
                     may cause a double rendering of the doors*/}
                     <div className="rightClip clipping" style={{height: data?.roomHeight + 25 }}>
                         rightClip
@@ -182,7 +182,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
                 <div className="leftWall" style={{ backgroundColor: data?.leftWallColor || data?.wallsColor, width: data?.roomLength, height: data?.roomHeight}}>
                     leftWall
                     {furnitureAbstract("left")}
-                    {doors("left")} {/*use only when furnitureAbstract doesn't render doors properly
+                    {/*doors("left")*/} {/*use only when furnitureAbstract doesn't render doors properly
                     may cause a double rendering of the doors*/}
                     <div className="leftClip clipping" style={{ height: data?.roomHeight + 25}}>
                         leftClip

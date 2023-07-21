@@ -73,11 +73,23 @@ function App() {
       console.log("%creturned","color: red",returned)
 
       console.log("return of use effect in app's use effect")
-      clearInterval(interval)
+      clearInterval(interval) // mutuation?
       setInter(null)
   })
 
 },[location])
+
+
+useEffect(() => {
+	const loc = window.location.pathname
+	const paths = /\/bedroom|\/bathroom|\/hall|\/storage/
+	const match = loc.match(paths) !== null
+	if (match) {
+		document.querySelector(".container").style.transform = ""
+		document.querySelector(".container").style.transition = "0s"
+	}
+	
+},[window.location.pathname])
 
 
 
