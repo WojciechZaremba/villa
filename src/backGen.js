@@ -104,7 +104,7 @@ const backroomsGen = function(handleClick) {
     for (let i = 0; i < genRoomsArr.length; i++) {
 		const currRoom = genRoomsArr[i]
 		const currDoors = currRoom.data.items.doors
-		let currPlaceholders = currRoom.data.items.placeholderBox
+		let currPlaceholders = currRoom.data.items.placeholderBoxes
 		const currTVs = currRoom.data.items.tvs
 
 		const currDimensions = {length: currRoom.data.roomLength, width: currRoom.data.roomWidth}

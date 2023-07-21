@@ -1,32 +1,32 @@
 import "./styles/general.css"
 import { 
-   Route, 
-   Routes, 
-   Navigate, 
-   useLocation, // ... >:[
-   useOutlet
-  } from 'react-router-dom';
-  
-import GenericRoom from './rooms/genericRoom';
-import Navbar from './navbar';
-import Bedroom from './rooms/bedroom';
-import Hall from './rooms/hall';
-import Bathroom from './rooms/bathroom';
-import Storage from './rooms/storage';
-import Popup from './functionalComponents/popup';
-import CourageView from './rooms/courageView';
-import { useState, useEffect, useRef } from "react";
+	Route, 
+	Routes, 
+	Navigate, 
+	useLocation,
+	// useOutlet
+} from 'react-router-dom';
+import { useState, useEffect } from "react"
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
+  
+import GenericRoom from './rooms/genericRoom'
+import Navbar from './navbar'
+import Bedroom from './rooms/bedroom'
+import Hall from './rooms/hall'
+import Bathroom from './rooms/bathroom'
+import Storage from './rooms/storage'
+import Popup from './functionalComponents/popup'
+import CourageView from './rooms/courageView'
 
 import { backroomsGen } from './backGen.js'
 
 function App() {
   console.log("%cApp","color: pink")
-  let location = useLocation();
-  const currentOutlet = useOutlet(); // ???
-  const [fadingOut, setFading] = useState(false);
-  const [popup, setPopup] = useState(false);
-  const [popElement, setPopElement] = useState(null);
+  let location = useLocation()
+//   const currentOutlet = useOutlet() // ???
+  const [fadingOut, setFading] = useState(false)
+  const [popup, setPopup] = useState(false)
+  const [popElement, setPopElement] = useState(null)
   const [roomRotation, setRoomRotation] = useState([60,0,45])
   const [interval, setInter] = useState(null)
   
@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     console.log("%conly once","color: yellow", document.querySelector(".genericRoomOrigin"))
   },[])
-
 
   useEffect(() => {
     console.log("LOCATION")
@@ -79,19 +78,25 @@ function App() {
 
 },[location])
 
-
 useEffect(() => {
 	const loc = window.location.pathname
-	const paths = /\/bedroom|\/bathroom|\/hall|\/storage/
-	const match = loc.match(paths) !== null
-	if (match) {
-		document.querySelector(".container").style.transform = ""
-		document.querySelector(".container").style.transition = "0s"
+	const pathsHouse = /\/bedroom|\/bathroom|\/hall|\/storage/
+	const pathsBackrooms = /\/gen/
+	const matchHouse = loc.match(pathsHouse) !== null
+	const matchBackrooms = loc.match(pathsBackrooms) !== null
+	if (matchHouse) {
+		setTimeout(()=>{
+			console.log("%cyou're back home","color: green")
+			document.querySelector(".container").style.transform = ""
+			document.querySelector(".container").style.transition = "0s"
+			clearInterval(interval)
+			setInter(null)
+		},400)
+	} else if (matchBackrooms) {
+		console.log("%cyou're in the backrooms","background: red")
 	}
 	
 },[window.location.pathname])
-
-
 
   function handleClick(e) {
     const exceptions = ["blackboardCanvas","arrow"]
