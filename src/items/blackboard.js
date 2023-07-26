@@ -1,8 +1,11 @@
 import PlaceholderBox from "./placeholderBox"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { handler } from "../App.js"
 
-const Blackboard = ({data, handleClick}) => {
+
+const Blackboard = ({data}) => {
     const [imageData, setImageData] = useState('')
+    const handleClick = useContext(handler)
 
     useEffect(() => {
 

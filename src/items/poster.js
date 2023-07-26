@@ -1,6 +1,10 @@
+import { useContext } from "react"
+import { testContextModule } from "../functionalComponents/handler.js";
+import { handler } from "../App.js";
 
 
-const Poster = ({data, handleClick, image, popup = false}) => {
+const Poster = ({data, image, popup = false}) => {
+    const handleClick = useContext(handler)
     let posterWidth = data?.width;
     let posterheight = data?.height;
     

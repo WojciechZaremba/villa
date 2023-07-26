@@ -1,9 +1,12 @@
 import './popup.css'
 import Poster from '../items/poster';
 import BlackboardCanvas from '../items/blackBoardCanvas'
+import { handler } from "../App.js"
+import { useContext } from 'react'
 
 // const Popup = (props, blackboard = false) => {
-const Popup = ({popElement, handleClick, trigger}) => {
+const Popup = ({popElement, trigger}) => {
+    const handleClick = useContext(handler)
     if (popElement === "blackboard") {
         return (trigger &&
             <div className="popup" onClick={(e)=>handleClick(e)}>

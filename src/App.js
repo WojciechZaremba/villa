@@ -6,7 +6,7 @@ import {
 	useLocation,
 	// useOutlet
 } from 'react-router-dom';
-import { useState, useEffect } from "react"
+import { useState, useEffect, createContext } from "react"
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
   
 import GenericRoom from './rooms/genericRoom'
@@ -19,6 +19,8 @@ import Popup from './functionalComponents/popup'
 import CourageView from './rooms/courageView'
 
 import { backroomsGen } from './backGen.js'
+
+export const handler = createContext()
 
 function App() {
   console.log("%cApp","color: pink")
@@ -37,8 +39,6 @@ function App() {
   // const yRotationValues = [-15, 0, 15]
   // const zRotationValues = [30, 45, 60]
   
-
-
   useEffect(() => {
     console.log("%conly once","color: yellow", document.querySelector(".genericRoomOrigin"))
   },[])
@@ -77,7 +77,7 @@ function App() {
   })
 
 },[location])
-
+// TODO: move swaying logic to the new useEffect
 useEffect(() => {
 	const loc = window.location.pathname
 	const pathsHouse = /\/bedroom|\/bathroom|\/hall|\/storage/
@@ -98,12 +98,10 @@ useEffect(() => {
 	
 },[window.location.pathname])
 
-  function handleClick(e) {
+  function handleClickFun(e) {
     const exceptions = ["blackboardCanvas","arrow"]
     // setFading(!fadingOut)
-
     console.log(e)
-
     if (!exceptions.some(ex => e.target.classList.contains(ex))) {
       setPopup(!popup) // don't close popup window when clicked on exception
       if (e.target.classList.contains("blackboard")) {
@@ -112,8 +110,10 @@ useEffect(() => {
         setPopElement(e.target)
       }
     }
-
   }
+
+  const handleClickContext = createContext(handleClickFun)
+
 
   // const currentOutlet = useOutlet()
   // const { nodeRef } =
@@ -124,7 +124,7 @@ useEffect(() => {
   //     return storedHouse !== null ? storedHouse : backroomsGen();
   //   }); // maybe it works
 
-  const [backrooms, setBackrooms] = useState(backroomsGen(handleClick));
+  const [backrooms, setBackrooms] = useState(backroomsGen());
   const [backLinks, setLinks] = useState(() => {
     let backLinks = []
     for (let room of backrooms.props.children) backLinks.push(room.props.path)
@@ -133,6 +133,7 @@ useEffect(() => {
 
   return (
     <div className="App" style={fadingOut ? {filter: 'blur(33px)'} : undefined }>
+      <handler.Provider value={handleClickFun}>
         <header className="App-header">
           <Navbar backLinks={backLinks}/>
         </header>
@@ -141,10 +142,10 @@ useEffect(() => {
             <CSSTransition key={location.pathname} timeout={400} classNames="fade" unmountOnExit>
               <Routes location={location}>
                 <Route exact path="/" element={<Navigate to="/bedroom" />} />
-                <Route path="/bedroom" element={<Bedroom handleClick={handleClick} />} />
-                <Route path="/hall" element={<Hall handleClick={handleClick}/>} />
-                <Route path="/storage" element={<Storage handleClick={handleClick}/>} />
-                <Route path="/bathroom" element={<Bathroom handleClick={handleClick}/>} />
+                <Route path="/bedroom" element={<Bedroom />} />
+                <Route path="/hall" element={<Hall />} />
+                <Route path="/storage" element={<Storage />} />
+                <Route path="/bathroom" element={<Bathroom />} />
                 <Route path="/courageView" element={<CourageView />} />
                 <Route path="/genericRoom" element={<GenericRoom />} />
               {backrooms}
@@ -152,11 +153,12 @@ useEffect(() => {
             </CSSTransition>
           </SwitchTransition>
         </div>
-        <Popup trigger={popup} popElement={popElement} handleClick={handleClick}/>
+        <Popup trigger={popup} popElement={popElement} />
+      </handler.Provider>
       </div>
   );
 }
 
-export default App;
+export { App } ;
 
 
