@@ -1,6 +1,7 @@
 import PlaceholderBox from "./placeholderBox"
 import { useState, useEffect, useContext } from 'react'
 import { handler } from "../App.js"
+import krowaSource from "../assets/krowa.png"
 
 
 const Blackboard = ({data}) => {
@@ -8,7 +9,28 @@ const Blackboard = ({data}) => {
     const handleClick = useContext(handler)
 
     useEffect(() => {
+        console.log("saved image: ",localStorage.getItem('savedImage'))
+        if (localStorage.getItem('savedImage') === null) {
+            const krowaImage = new Image()
+            krowaImage.src = krowaSource
 
+            krowaImage.onload = function () {
+            //     const canvas = document.createElement("canvas")
+            //     canvas.width = krowaImage.width
+            //     canvas.height = krowaImage.height
+                
+            //     const ctx = canvas.getContext("2d")
+            //     ctx.drawImage(krowaImage, 0, 0)
+
+            //     const dataURL = canvas.toDataURL()
+            //     console.log(dataURL)
+            //     // const krowaImageData = JSON.stringify(dataURL)
+                const krowaImageData = JSON.stringify(krowaImage.src)
+                localStorage.setItem('savedImage', krowaImageData)
+                setImageData(krowaImageData)
+            }
+
+        }
         setImageData(JSON.parse(localStorage.getItem('savedImage')))
         console.log("black board use effect starts here")
         const handleStorageChange = (e) => {
@@ -23,7 +45,7 @@ const Blackboard = ({data}) => {
         return () => {
             window.removeEventListener('imageChanged', handleStorageChange)
         }
-    },[])
+    },[imageData])
 
 
 

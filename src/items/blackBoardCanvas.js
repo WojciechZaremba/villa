@@ -100,8 +100,7 @@ const BlackBoardCanvas = () => {
                 backgroundColor: "bisque"}}>
             <span id="chalk" className="blackboardCanvas buttons">CHALK</span><br/>
             <span id="ereaser" className="blackboardCanvas buttons">EREASER</span>
-        </div>
-        </>)
+        </div></>)
 }
 
 export default BlackBoardCanvas
