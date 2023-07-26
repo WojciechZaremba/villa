@@ -1,7 +1,7 @@
 
 // import Bed from "../items/bed"
 
-const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
+const GenericRoom = ({data, items, customOriginClass = ""}) => {
 
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
@@ -134,7 +134,7 @@ const GenericRoom = ({data, items, handleClick, customOriginClass = ""}) => {
             }
             for (let thing of things) {
                 if (place !== thing?.wall) continue
-                furniture.push(<thing.proto key={furniture.length} data={thing} handleClick={handleClick}/>)
+                furniture.push(<thing.proto key={furniture.length} data={thing} />)
             }
         }
 

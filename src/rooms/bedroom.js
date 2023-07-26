@@ -13,7 +13,7 @@ import Blackboard from "../items/blackboard"
 import ComfyChair from "../items/comfyChair"
 import tvCabinet from "../items/tvCabinet"
 
-const Bedroom = ({handleClick}) => {
+const Bedroom = () => {
     console.log("Bedroom here")
     const [data, setData] = useState({
         roomName: "bedroom",
@@ -28,7 +28,6 @@ const Bedroom = ({handleClick}) => {
     const items = { // every element of items must be iterable
         posters: [{
             proto: Poster,
-            handler: handleClick,
             wall: "left",
             styles: {
                 backgroundImage: `url(${imageColors})`,
@@ -40,7 +39,6 @@ const Bedroom = ({handleClick}) => {
           },
           {
             proto: Poster,
-            handler: handleClick,
             wall: "left",
             styles: {
                 backgroundImage: `url(${imageMan})`,
@@ -138,7 +136,7 @@ const Bedroom = ({handleClick}) => {
 
 
 
-    return (<GenericRoom data={data} items={items} handleClick={handleClick} />)
+    return (<GenericRoom data={data} items={items} />)
 }
 
 export default Bedroom;

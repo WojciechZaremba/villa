@@ -8,7 +8,7 @@ import TV from './items/tv'
 import PlaceholderBox from "./items/placeholderBox"
 
 ///// CREATE READY ROOMS
-const backroomsGen = function(handleClick) {
+const backroomsGen = function() {
 	let genRoomsArr = treeGen()
 	const ready = []
 
@@ -21,8 +21,7 @@ const backroomsGen = function(handleClick) {
 					  path={route} 
 					  element={<GenericRoom key={i} 
 					  data={data} 
-					  items={items} 
-					  handleClick={handleClick} 
+					  items={items}
 					  customOriginClass="backroomOrigin" />} />)
 	}
 	return (<>{ready}</>)

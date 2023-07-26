@@ -6,7 +6,7 @@ import Door from '../items/door';
 import Poster from '../items/poster';
 
 
-const Hall = ({handleClick}) => {
+const Hall = () => {
     const [data, setData] = useState({
         roomName: "hall",
         roomWidth: 250,
@@ -20,7 +20,6 @@ const Hall = ({handleClick}) => {
         posters: [{
             proto: Poster,
             wall: "left",
-            handler: handleClick,
             styles: {
                 backgroundImage: `url(${panOdKota})`,
                 top: 78,
@@ -32,7 +31,6 @@ const Hall = ({handleClick}) => {
           {
             proto: Poster,
             wall: "right",
-            handler: handleClick,
             styles: {
                 backgroundImage: `url(${chojrak})`,
                 top: "78px",
@@ -62,7 +60,7 @@ const Hall = ({handleClick}) => {
     }
 
     return (
-            <GenericRoom data={data} items={items} handleClick={handleClick} />
+            <GenericRoom data={data} items={items} />
     )
 }
 

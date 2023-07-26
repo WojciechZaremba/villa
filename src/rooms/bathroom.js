@@ -4,7 +4,7 @@ import Door from "../items/door";
 import Bathtub from "../items/bathtub";
 
 
-const Bathroom = ({handleClick}) => {
+const Bathroom = () => {
     const [data, setData] = useState({
         roomName: "bathroom",
         roomWidth: 300,
@@ -31,7 +31,7 @@ const Bathroom = ({handleClick}) => {
         }]
     }
 
-    return <GenericRoom data={data} items={items} handleClick={handleClick} />
+    return <GenericRoom data={data} items={items} />
 }
 
 export default Bathroom;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Door from "../items/door";
 import PlaceholderBox from "../items/placeholderBox";
 
-const Storage = ({handleClick}) => {
+const Storage = () => {
     const [data, setData] = useState({
         roomName: "storage",
         roomWidth: 200,
@@ -35,7 +35,7 @@ const Storage = ({handleClick}) => {
     }
     
 
-    return <GenericRoom data={data} items={items} handleClick={handleClick} />
+    return <GenericRoom data={data} items={items} />
 }
 
 export default Storage;
