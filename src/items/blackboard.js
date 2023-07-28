@@ -14,7 +14,7 @@ const Blackboard = ({data}) => {
             const krowaImage = new Image()
             krowaImage.src = krowaSource
 
-            krowaImage.onload = function () {
+            // krowaImage.onload = function () {
             //     const canvas = document.createElement("canvas")
             //     canvas.width = krowaImage.width
             //     canvas.height = krowaImage.height
@@ -28,7 +28,7 @@ const Blackboard = ({data}) => {
                 const krowaImageData = JSON.stringify(krowaImage.src)
                 localStorage.setItem('savedImage', krowaImageData)
                 setImageData(krowaImageData)
-            }
+            // }
 
         }
         setImageData(JSON.parse(localStorage.getItem('savedImage')))
