@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/villa/static/css/main.29795686.css",
-    "main.js": "/villa/static/js/main.74c520d6.js",
+    "main.js": "/villa/static/js/main.5d21fe00.js",
     "static/js/787.a3f595a3.chunk.js": "/villa/static/js/787.a3f595a3.chunk.js",
     "static/media/wood.png": "/villa/static/media/wood.d2c0ab61b3c8fdec93a1.png",
     "static/media/noSignal.gif": "/villa/static/media/noSignal.004feef29481e06823ec.gif",
@@ -11,11 +11,11 @@
     "static/media/krowa.png": "/villa/static/media/krowa.a395b52c0b235e61e6e6.png",
     "index.html": "/villa/index.html",
     "main.29795686.css.map": "/villa/static/css/main.29795686.css.map",
-    "main.74c520d6.js.map": "/villa/static/js/main.74c520d6.js.map",
+    "main.5d21fe00.js.map": "/villa/static/js/main.5d21fe00.js.map",
     "787.a3f595a3.chunk.js.map": "/villa/static/js/787.a3f595a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29795686.css",
-    "static/js/main.74c520d6.js"
+    "static/js/main.5d21fe00.js"
   ]
 }
