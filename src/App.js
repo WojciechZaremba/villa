@@ -142,6 +142,7 @@ useEffect(() => {
             <CSSTransition key={location.pathname} timeout={400} classNames="fade" unmountOnExit>
               <Routes location={location}>
                 <Route exact path="/" element={<Navigate to="/bedroom" />} />
+                <Route exact path="/villa" element={<Navigate to="/bedroom" />} />
                 <Route path="/bedroom" element={<Bedroom />} />
                 <Route path="/hall" element={<Hall />} />
                 <Route path="/storage" element={<Storage />} />
