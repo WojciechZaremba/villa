@@ -77,7 +77,6 @@
     transform-origin: top left;
     background: dimgray;
     box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1);
-  
   }
   .leftWall > .topClip {
     position: absolute;
@@ -97,9 +96,7 @@
     transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
     transform-origin: top left;
     box-shadow: inset -49px -74px 266px -101px rgb(10 10 10)
-  
   }
-  
   .rightWall > .rightClip {
     position: absolute;
     left: 100%;
@@ -110,7 +107,6 @@
     transform-origin: top left;
     background: dimgray;
     box-shadow: inset 17px -100px 100px -37px rgba(66, 68, 90, 1)
-    
   }
   .rightWall > .topClip {
     position: absolute;
@@ -122,7 +118,18 @@
     transform-origin: top left;
     background: dimgray;
   }
-
+  .frontRWall {
+    position: absolute;
+    background-color: rgba(0, 255, 255, 0.781);
+    /* transform: rotateX(90deg) rotateY(90deg); */
+    transform-origin: top left;
+  }
+  .frontLWall {
+    position: absolute;
+    background-color: rgba(255, 187, 0, 0.781);
+    /* transform: rotateX(90deg) rotateY(90deg); */
+    transform-origin: top left;
+  }
 
 
 

@@ -1,11 +1,8 @@
 
-// import Bed from "../items/bed"
-
 const GenericRoom = ({data, items, customOriginClass = ""}) => {
 
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
-
     
     function furnitureAbstract(place) {
         console.log("iterable? ", typeof Object.keys(items)[Symbol.iterator])
@@ -68,6 +65,12 @@ const GenericRoom = ({data, items, customOriginClass = ""}) => {
                     <div className="topClip clipping" style={{ width: data?.roomLength + 25, top: data?.roomHeight}}>
                         topClip
                     </div>
+                </div>
+                <div className="frontRWall" style={{ width: data?.roomLength, height: 0, transform: `rotateX(90deg) rotateY(90deg) translateZ(${data?.roomWidth}px)`}}>
+                    {furnitureAbstract("frontR")}
+                </div>
+                <div className="frontLWall" style={{ width: data?.roomWidth, height: 0, transform: `rotateX(90deg) translateZ(-${data?.roomLength}px)`}}>
+                    {furnitureAbstract("frontL")}
                 </div>
             </div>
         </div>

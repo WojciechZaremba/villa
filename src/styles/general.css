@@ -1,6 +1,9 @@
+html {
+    width: 100vw;
+}
 body {
-    overflow: auto; /* Hide scrollbars */
-  }
+    overflow: hidden; /* Hide scrollbars */
+}
 .clickable {
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import GenericRoom from './genericRoom';
-import chojrak from "../assets/courageCss.jpg";
-import imageAstronaut from "../assets/seagull-7282992_1280.webp"
+import imageChojrak from "../assets/courageCss.jpg";
+import imageSeagull from "../assets/seagull-7282992_1280.webp"
 import Door from '../items/door';
 import Poster from '../items/poster';
 
@@ -21,7 +21,7 @@ const Hall = () => {
             proto: Poster,
             wall: "left",
             styles: {
-                backgroundImage: `url(${imageAstronaut})`,
+                backgroundImage: `url(${imageSeagull})`,
                 top: 85,
                 left: 320,
                 width: 110,
@@ -32,7 +32,7 @@ const Hall = () => {
             proto: Poster,
             wall: "right",
             styles: {
-                backgroundImage: `url(${chojrak})`,
+                backgroundImage: `url(${imageChojrak})`,
                 top: "78px",
                 left: "80px",
                 width: "116px",
@@ -46,6 +46,24 @@ const Hall = () => {
             styles: {
                 left: 80,
                 background: "Pink",
+            },
+          },
+          {
+            proto: Door,
+            route: "/bedroom",
+            wall: "frontR",
+            styles: {
+                left: 145,
+                background: "white",
+            },
+          },
+          {
+            proto: Door,
+            route: "/bedroom",
+            wall: "frontL",
+            styles: {
+                left: 50,
+                background: "black",
             },
           },
           {
