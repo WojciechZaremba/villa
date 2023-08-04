@@ -13,7 +13,7 @@ const Navbar = ({backLinks}) => {
 
     useEffect(() => {
         const a = window.location.pathname
-        console.log(document.querySelector(`a[href="${"/hall"}"]`).classLisst)
+        console.log(document.querySelector(`a[href="${"/hall"}"]`)?.classLisst)
 
         document.querySelector(`a[href="${prevPath}"]`)?.classList?.remove("currentHref")
         document.querySelector(`a[href="${a}"]`)?.classList?.add("currentHref")
@@ -30,7 +30,9 @@ const Navbar = ({backLinks}) => {
                 <Link className="navbar link" key={998} to="/bathroom" id="bathroomNav">bathroom</Link>
                 <Link className="navbar link" key={9998} to="/storage" id="storageNav">storage</Link>
                 <div className="dropdown">
-                    <a href="/gen0" onClick={()=>window.location.pathname='/gen0'} className="dropButton link" key="444">experimental</a>
+                    <a href="#" 
+                    // onClick={()=>window.location.pathname='/gen0'} 
+                    className="dropButton link" key="444">experimental</a>
                         <div className="backrooms dropdownContent">
                             {backLinksElem}
                         </div>

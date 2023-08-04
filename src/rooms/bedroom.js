@@ -4,7 +4,7 @@ import GenericRoom from './genericRoom';
 
 import Bed from "../items/bed";
 import imageColors from "../assets/kolory10.jpg"
-import imageMan from "../assets/panOdKota.jpg"
+import imageHerons from "../assets/herons-7881512_1280.webp"
 import Door from"../items/door";
 import Poster from "../items/poster";
 import PlaceholderBox from "../items/placeholderBox"
@@ -41,7 +41,7 @@ const Bedroom = () => {
             proto: Poster,
             wall: "left",
             styles: {
-                backgroundImage: `url(${imageMan})`,
+                backgroundImage: `url(${imageHerons})`,
                 width: 110,
                 height: 110,
                 left: 310,
@@ -53,7 +53,7 @@ const Bedroom = () => {
             route: "/storage",
             wall: "right",
             styles: {
-                left: 320,
+                left: 360,
                 background: "Sienna",
             }
           },
@@ -70,8 +70,8 @@ const Bedroom = () => {
             proto: PlaceholderBox,
             wall: "floor",
             styles: {
-                left: 300,
-                top: 400
+                left: 184,
+                top: 218
             }
         }],
         // bed: [{ proto: Bed,
