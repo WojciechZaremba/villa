@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/villa/static/css/main.29795686.css",
-    "main.js": "/villa/static/js/main.dbb08878.js",
+    "main.css": "/villa/static/css/main.f8650dd1.css",
+    "main.js": "/villa/static/js/main.89915c67.js",
     "static/js/787.a3f595a3.chunk.js": "/villa/static/js/787.a3f595a3.chunk.js",
     "static/media/wood.png": "/villa/static/media/wood.d2c0ab61b3c8fdec93a1.png",
     "static/media/noSignal.gif": "/villa/static/media/noSignal.004feef29481e06823ec.gif",
@@ -11,12 +11,12 @@
     "static/media/seagull-7282992_1280.webp": "/villa/static/media/seagull-7282992_1280.5e5ddc5d094c56fb3f68.webp",
     "static/media/krowa.png": "/villa/static/media/krowa.a395b52c0b235e61e6e6.png",
     "index.html": "/villa/index.html",
-    "main.29795686.css.map": "/villa/static/css/main.29795686.css.map",
-    "main.dbb08878.js.map": "/villa/static/js/main.dbb08878.js.map",
+    "main.f8650dd1.css.map": "/villa/static/css/main.f8650dd1.css.map",
+    "main.89915c67.js.map": "/villa/static/js/main.89915c67.js.map",
     "787.a3f595a3.chunk.js.map": "/villa/static/js/787.a3f595a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.29795686.css",
-    "static/js/main.dbb08878.js"
+    "static/css/main.f8650dd1.css",
+    "static/js/main.89915c67.js"
   ]
 }
