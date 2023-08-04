@@ -6,116 +6,6 @@ const GenericRoom = ({data, items, customOriginClass = ""}) => {
     const roomOffset = (data?.roomLength - (data?.roomWidth + data?.roomLength) / 2) * .7
     const roomOffsetVert = (data?.roomHeight - data?.roomHeight / 2)
 
-    // function placeholderBoxes() {
-    //     let placeholderBoxesNum = items?.placeholderBoxes?.length
-    //     let placeholderBoxes = items?.placeholderBoxes
-
-    //     let placeholderBoxesComponents = []
-    //     for (let i = 0; i < placeholderBoxesNum; i++) {
-    //         let ComponentProto = placeholderBoxes[i].proto
-    //         placeholderBoxesComponents.push(<ComponentProto 
-    //                 data={placeholderBoxes[i]} 
-    //                 key={i} 
-    //                 handleClick={handleClick}/>)
-    //     }
-    //     return <>{placeholderBoxesComponents}</>
-    // }
-    // function tvs() {
-    //     let tvsNum = items?.tvs?.length
-    //     let tvs = items?.tvs
-
-    //     let tvsComponents = []
-    //     for (let i = 0; i < tvsNum; i++) {
-    //         let ComponentProto = tvs[i].proto
-    //         tvsComponents.push(<ComponentProto  data={tvs[i]} 
-    //                                             key={i} 
-    //                                             handleClick={handleClick}/>)
-    //     }
-    //     return <>{tvsComponents}</>
-    // }
-    // function blackboards() {
-    //     let blackboardsNum = items?.blackboards?.length
-    //     let blackboards = items?.blackboards
-
-    //     let blackboardsComponents = []
-    //     for (let i = 0; i < blackboardsNum; i++) {
-    //         let ComponentProto = blackboards[i].proto
-    //         blackboardsComponents.push(<ComponentProto  data={blackboards[i]} 
-    //                                                     key={i} 
-    //                                                     handleClick={handleClick}/>)
-    //     }
-    //     return <>{blackboardsComponents}</>
-    // }
-    // function bathtubs() {
-    //     let bathtubsNum = items?.bathtubs?.length
-    //     let bathtubs = items?.bathtubs
-
-    //     let bathtubsComponents = []
-    //     for (let i = 0; i < bathtubsNum; i++) {
-    //         let ComponentProto = bathtubs[i].proto
-    //         bathtubsComponents.push(<ComponentProto data={bathtubs[i]} 
-    //                                                 key={i} 
-    //                                                 handleClick={null}/>)
-    //     }
-    //     return <>{bathtubsComponents}</>
-    // }
-    // function tvCabinets() {
-    //     let tvCabinetsNum = items?.tvCabinets?.length
-    //     let tvCabinets = items?.tvCabinets
-
-    //     let tvCabinetsComponents = []
-    //     for (let i = 0; i < tvCabinetsNum; i++) {
-    //         let ComponentProto = tvCabinets[i].proto
-    //         tvCabinetsComponents.push(<ComponentProto   data={tvCabinets[i]} 
-    //                                                     key={i} 
-    //                                                     handleClick={null}/>)
-    //     }
-    //     return <>{tvCabinetsComponents}</>
-    // }
-    // function comfyChairs() {
-    //     let chairsNum = items?.comfyChairs?.length
-    //     let chairs = items?.comfyChairs
-
-    //     let chairsComponents = []
-    //     for (let i = 0; i < chairsNum; i++) {
-    //         let ComponentProto = chairs[i].proto
-    //         chairsComponents.push(<ComponentProto   data={chairs[i]} 
-    //                                                 key={i} 
-    //                                                 handleClick={null}/>)
-    //     }
-    //     return <>{chairsComponents}</>
-    // }
-    // function posters(plane) {
-    //     let postersNum = items?.posters?.length
-    //     let posters = items?.posters
-
-    //     let postersComponents = []
-    //     for (let i = 0; i < postersNum; i++) {
-    //         if (posters[i].wall === plane) {
-    //             let ComponentProto = posters[i].proto
-    //             postersComponents.push(<ComponentProto  data={posters[i]} 
-    //                                                     key={i} 
-    //                                                     handleClick={handleClick} />)
-    //         }
-    //     } 
-    //     return <>{postersComponents}</>
-    // }
-    // function doors(plane) {
-    //     let doorsNum = items?.doors?.length
-    //     let doors = items?.doors
-
-    //     let doorsComponenets = []
-    //     for (let i = 0; i < doorsNum; i++) {
-    //         if (doors[i].wall === plane) {
-    //             let ComponentProto = doors[i].proto
-    //             doorsComponenets.push(<ComponentProto   data={items.doors[i]} 
-    //                                                     key={i}/>)
-    //         }
-    //     }
-    //     return  (<div className="doors" style={{display: 'flex', justifyContent: "space-around"}}>
-    //             {doorsComponenets}
-    //             </div>)
-    // }
     
     function furnitureAbstract(place) {
         console.log("iterable? ", typeof Object.keys(items)[Symbol.iterator])
@@ -140,18 +30,6 @@ const GenericRoom = ({data, items, customOriginClass = ""}) => {
 
         return (<>{furniture}</>)
     }
-
-
-    // function furniture() {
-    //     return (<>
-    //         {placeholderBoxes()}
-    //         {bathtubs()}
-    //         {tvs()}
-    //         {blackboards()}
-    //         {comfyChairs()}
-    //         {tvCabinets()}
-    //         </>)
-    // }
 
     return (
         <div className='genericRoom'>
